@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="date" maxCount="1" deletionRule="Cascade" destinationEntity="EventDate" inverseName="event" inverseEntity="EventDate" syncable="YES"/>
+        <relationship name="reminder" maxCount="1" deletionRule="Cascade" destinationEntity="EventReminder" inverseName="event" inverseEntity="EventReminder" syncable="YES"/>
+        <relationship name="time" maxCount="1" deletionRule="Cascade" destinationEntity="EventTime" inverseName="event" inverseEntity="EventTime" syncable="YES"/>
+    </entity>
+    <entity name="EventDate" representedClassName="EventDate" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="date" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventReminder" representedClassName="EventReminder" syncable="YES">
+        <attribute name="hasReminder" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="minutesBefore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="reminder" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventTime" representedClassName="EventTime" syncable="YES">
+        <attribute name="hour" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minute" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="time" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EventDate" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EventReminder" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EventTime" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

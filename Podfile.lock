@@ -1,0 +1,27 @@
+PODS:
+  - iRate (1.9)
+  - MagicalRecord (2.2)
+  - MMDrawerController (0.5.1):
+    - MMDrawerController/Core
+    - MMDrawerController/MMDrawerBarButtonItem
+    - MMDrawerController/MMDrawerVisualStates
+    - MMDrawerController/Subclass
+  - MMDrawerController/Core (0.5.1)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.1):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.1):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.1):
+    - MMDrawerController/Core
+
+DEPENDENCIES:
+  - iRate
+  - MagicalRecord (~> 2.2)
+  - MMDrawerController
+
+SPEC CHECKSUMS:
+  iRate: b8ee95606b5cb24ba6f8b71c2673b04968254337
+  MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
+  MMDrawerController: 3e22aec684dbee5307ff9d1e76523003a3303a2d
+
+COCOAPODS: 0.29.0
