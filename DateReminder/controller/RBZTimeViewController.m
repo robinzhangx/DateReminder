@@ -36,6 +36,7 @@ static NSString *const FLURRY_VC_TIME_VIEW = @"vc_time_view";
     
     self.timePicker = [RBZDateReminder instance].datePicker;
     self.timePicker.datePickerMode = UIDatePickerModeTime;
+    self.timePicker.minuteInterval = 5;
     [self.pickerContainer addSubview:self.timePicker];
     [self.timePicker setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSDictionary *viewDic = @{ @"picker" : self.timePicker };
