@@ -71,6 +71,7 @@ static NSString *reminderLabelHint = @"<Set reminder>";
     UIColor *highlightColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.2];
     UIImage *highlightImage = [RBZUtils imageWithColor:highlightColor];
     [self.createButton setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+    self.createButton.layer.cornerRadius = 2.0;
     
     [self.timeCell setBackgroundImage:self.highlightImage forState:UIControlStateHighlighted];
     [self.timeCell addTarget:self action:@selector(onTapTime:) forControlEvents:UIControlEventTouchUpInside];
