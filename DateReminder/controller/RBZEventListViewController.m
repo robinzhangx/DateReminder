@@ -106,9 +106,17 @@ static float sectionHeaderHeight = 44.0;
 
 - (void)timerFired:(NSTimer *)timer
 {
-    //NSLog(@"timerFired");
     [self loadData];
     [self loadQuote];
+}
+
+- (void)didBecomeActive:(NSNotification *)notification
+{
+    NSDate *now = [NSDate date];
+    if (![RBZUtils onSameDay:now anotherDate:self.displayDate]) {
+        [self loadData];
+        [self loadQuote];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +134,10 @@ static float sectionHeaderHeight = 44.0;
 {
     //NSLog(@"viewWillAppear:eventList");
     [Flurry logEvent:FLURRY_VC_EVENT_LIST timed:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                              selector:@selector(didBecomeActive:)
+                                                  name:UIApplicationDidBecomeActiveNotification
+                                                object:nil];
     if (self.mm_drawerController) {
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
         [self.mm_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
@@ -137,6 +149,7 @@ static float sectionHeaderHeight = 44.0;
 - (void)viewWillDisappear:(BOOL)animated
 {
     //NSLog(@"viewWillDisappear:eventList");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [Flurry endTimedEvent:FLURRY_VC_EVENT_LIST withParameters:nil];
     [super viewWillDisappear:animated];
 }
