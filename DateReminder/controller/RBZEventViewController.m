@@ -667,6 +667,7 @@ static NSString *reminderLabelHint = @"<Set reminder>";
             self.event.title = str;
             NSManagedObjectContext *localContext = [NSManagedObjectContext MR_defaultContext];
             [localContext MR_saveToPersistentStoreAndWait];
+            [[RBZDateReminder instance] updateEvent:self.event];
             [self.delegate eventUpdated:self.event];
         }
     }
