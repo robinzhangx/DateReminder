@@ -278,6 +278,7 @@ static NSString *reminderLabelHint = @"<Set reminder>";
         [localContext MR_saveToPersistentStoreAndWait];
         [[RBZDateReminder instance] removeEvent:self.event];
         [self.delegate eventDeleted:self.event];
+        self.event = nil;
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
