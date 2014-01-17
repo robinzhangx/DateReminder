@@ -37,7 +37,10 @@
     NSDate* date = [gregorian dateFromComponents:comps];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
-    return [dateFormatter stringFromDate:date];
+    NSString *str = [dateFormatter stringFromDate:date];
+    [dateFormatter setDateFormat:@"EE"];
+    str = [NSString stringWithFormat:@"%@, %@", [dateFormatter stringFromDate:date], str];
+    return str;
 }
 
 + (NSString *)getDailyString

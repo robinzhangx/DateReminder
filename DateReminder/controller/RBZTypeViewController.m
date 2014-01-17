@@ -84,9 +84,9 @@ static NSString *const FLURRY_VC_TYPE_VIEW = @"vc_type_view";
     [formatter setDateFormat:@"MMMM dd"];
     self.todayStr = [formatter stringFromDate:self.today];
     self.tomorrowStr = [formatter stringFromDate:self.tomorrow];
-    [formatter setDateFormat:@"EEE"];
-    self.todayStr = [NSString stringWithFormat:@"%@, %@", self.todayStr, [formatter stringFromDate:self.today]];
-    self.tomorrowStr = [NSString stringWithFormat:@"%@, %@", self.tomorrowStr, [formatter stringFromDate:self.tomorrow]];
+    [formatter setDateFormat:@"EE"];
+    self.todayStr = [NSString stringWithFormat:@"%@, %@", [formatter stringFromDate:self.today], self.todayStr];
+    self.tomorrowStr = [NSString stringWithFormat:@"%@, %@", [formatter stringFromDate:self.tomorrow], self.tomorrowStr];
 
     self.typeSections = @[@"", @"Repeat"];
     self.notRepeatType = @[@"Today", @"Tomorrow", @"Pick a day"];

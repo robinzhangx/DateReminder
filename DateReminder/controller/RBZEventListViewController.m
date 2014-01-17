@@ -343,8 +343,8 @@ static float sectionHeaderHeight = 44.0;
     self.todayDateString = [formatter stringFromDate:self.displayDate];
     self.tomorrowDateString = [formatter stringFromDate:tomorrow];
     [formatter setDateFormat:@"EE"];
-    self.todayDateString = [NSString stringWithFormat:@"%@, %@", self.todayDateString, [formatter stringFromDate:self.displayDate]];
-    self.tomorrowDateString = [NSString stringWithFormat:@"%@, %@", self.tomorrowDateString, [formatter stringFromDate:tomorrow]];
+    self.todayDateString = [NSString stringWithFormat:@"%@, %@", [formatter stringFromDate:self.displayDate], self.todayDateString];
+    self.tomorrowDateString = [NSString stringWithFormat:@"%@, %@", [formatter stringFromDate:tomorrow], self.tomorrowDateString];
     
     [self.tableView reloadData];
 }
