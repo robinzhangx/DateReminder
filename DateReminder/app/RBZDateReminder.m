@@ -241,6 +241,7 @@ static NSString *LOCAL_NOTIFICATION_KEY = @"event_id";
     event.time = time;
     event.reminder = reminder;
     [localContext MR_saveToPersistentStoreAndWait];
+    // this event has no reminder, no need to call AddEvent:
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:DateReminder_defaultEventsKey];
     [defaults synchronize];
