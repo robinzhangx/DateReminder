@@ -10,6 +10,7 @@
 #import "RBZDateViewController.h"
 #import "RBZDateValueViewController.h"
 #import "RBZDateTypeCell.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZTypeViewController ()
 
@@ -29,7 +30,7 @@
 @property NSString *tomorrowStr;
 @end
 
-static NSString *const FLURRY_VC_TYPE_VIEW = @"vc_type_view";
+static NSString *const GA_VC_TYPE_VIEW = @"Type Picker View";
 
 @implementation RBZTypeViewController
 
@@ -53,16 +54,10 @@ static NSString *const FLURRY_VC_TYPE_VIEW = @"vc_type_view";
     [self.tableView reloadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [Flurry logEvent:FLURRY_VC_TYPE_VIEW timed:YES];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [Flurry endTimedEvent:FLURRY_VC_TYPE_VIEW withParameters:nil];
-    [super viewWillDisappear:animated];
+    [GoogleAnalyticsHelper trackScreen:GA_VC_TYPE_VIEW];
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning

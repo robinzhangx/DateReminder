@@ -8,6 +8,7 @@
 
 #import "RBZDateValueViewController.h"
 #import "RBZUtils.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZDateValueViewController ()
 
@@ -19,7 +20,7 @@
 
 @end
 
-static NSString *const FLURRY_VC_DATE_VALUE = @"vc_date_value";
+static NSString *const GA_VC_DATE_VALUE = @"Date Value Picker View";
 
 @implementation RBZDateValueViewController
 
@@ -69,16 +70,10 @@ static NSString *const FLURRY_VC_DATE_VALUE = @"vc_date_value";
     [self updateSetButtonTitle];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [Flurry logEvent:FLURRY_VC_DATE_VALUE timed:YES];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [Flurry endTimedEvent:FLURRY_VC_DATE_VALUE withParameters:nil];
-    [super viewWillDisappear:animated];
+    [GoogleAnalyticsHelper trackScreen:GA_VC_DATE_VALUE];
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning

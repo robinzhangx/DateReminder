@@ -7,6 +7,7 @@
 //
 
 #import "RBZReminderViewController.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZReminderViewController ()
 
@@ -15,7 +16,7 @@
 
 @end
 
-static NSString *const FLURRY_VC_REMINDER_VIEW = @"vc_reminder_view";
+static NSString *const GA_VC_REMINDER_VIEW = @"Reminder Picker View";
 
 @implementation RBZReminderViewController
 
@@ -28,16 +29,10 @@ static NSString *const FLURRY_VC_REMINDER_VIEW = @"vc_reminder_view";
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [Flurry logEvent:FLURRY_VC_REMINDER_VIEW timed:YES];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [Flurry endTimedEvent:FLURRY_VC_REMINDER_VIEW withParameters:nil];
-    [super viewWillDisappear:animated];
+    [GoogleAnalyticsHelper trackScreen:GA_VC_REMINDER_VIEW];
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidLoad

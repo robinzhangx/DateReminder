@@ -9,6 +9,7 @@
 #import "RBZTimeViewController.h"
 #import "RBZDateReminder.h"
 #import "RBZUtils.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZTimeViewController ()
 
@@ -17,7 +18,7 @@
 
 @end
 
-static NSString *const FLURRY_VC_TIME_VIEW = @"vc_time_view";
+static NSString *const GA_VC_TIME_VIEW = @"Time Picker View";
 
 @implementation RBZTimeViewController
 
@@ -67,20 +68,9 @@ static NSString *const FLURRY_VC_TIME_VIEW = @"vc_time_view";
     [self updateSetButtonTitle];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [Flurry logEvent:FLURRY_VC_TIME_VIEW timed:YES];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [Flurry endTimedEvent:FLURRY_VC_TIME_VIEW withParameters:nil];
-    [super viewWillDisappear:animated];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
+    [GoogleAnalyticsHelper trackScreen:GA_VC_TIME_VIEW];
     [self.timePicker addTarget:self
                         action:@selector(onPickerValueChanged:)
               forControlEvents:UIControlEventValueChanged];

@@ -14,15 +14,12 @@
 #import "RBZAllEventViewController.h"
 #import "RBZDateReminder.h"
 #import "RBZIAPHelper.h"
-#import "Flurry.h"
 
 @interface RBZSettingsViewController ()
 
 @property RBZSettingsTableViewController *tableController;
 
 @end
-
-static NSString *const FLURRY_VC_SETTINGS = @"vc_settings";
 
 @implementation RBZSettingsViewController
 
@@ -42,18 +39,6 @@ static NSString *const FLURRY_VC_SETTINGS = @"vc_settings";
     
     self.tableController = (RBZSettingsTableViewController *)[self.childViewControllers objectAtIndex:0];
     self.tableController.delegate = self;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [Flurry logEvent:FLURRY_VC_SETTINGS timed:YES];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [Flurry endTimedEvent:FLURRY_VC_SETTINGS withParameters:nil];
-    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,7 +66,6 @@ static NSString *const FLURRY_VC_SETTINGS = @"vc_settings";
     } else {
         nav = [self.storyboard instantiateViewControllerWithIdentifier:@"nav_today"];
     }
-    [Flurry logAllPageViews:nav];
     [self.mm_drawerController setCenterViewController:nav withFullCloseAnimation:YES completion:nil];
 }
 

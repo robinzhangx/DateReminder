@@ -6,13 +6,15 @@
 //  Copyright (c) 2013年 Robin Zhang. All rights reserved.
 //
 
+
+#import "UITableView+NXEmptyView.h"
 #import "UIViewController+MMDrawerController.h"
 #import "RBZAllEventViewController.h"
 #import "RBZEventViewController.h"
 #import "RBZSettingsViewController.h"
 #import "RBZAllEventListCell.h"
 #import "RBZDateReminder.h"
-#import "Flurry.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZAllEventViewController ()
 
@@ -28,7 +30,7 @@
 
 @end
 
-static NSString *const FLURRY_VC_ALL_EVENT = @"vc_all_event";
+static NSString *const GA_VC_ALL_EVENT = @"All Event View";
 
 @implementation RBZAllEventViewController
 
@@ -60,12 +62,18 @@ static NSString *const FLURRY_VC_ALL_EVENT = @"vc_all_event";
                                                                 action:@selector(onTodayButtonTapped:)];
     self.navigationItem.leftBarButtonItem = todayBtn;
     
+    /*
+    UILabel *emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 100.0)];
+    emptyLabel.text = @"No Event";
+    
+    [emptyLabel setTextAlignment:NSTextAlignmentCenter];
+    self.tableView.nxEV_emptyView = emptyLabel;
+    */
     [self loadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [Flurry logEvent:FLURRY_VC_ALL_EVENT timed:YES];
     if (self.mm_drawerController) {
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
         [self.mm_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeNone];
@@ -73,9 +81,15 @@ static NSString *const FLURRY_VC_ALL_EVENT = @"vc_all_event";
     [super viewWillAppear:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [GoogleAnalyticsHelper trackScreen:GA_VC_ALL_EVENT];
+    [super viewDidAppear:animated];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [Flurry endTimedEvent:FLURRY_VC_ALL_EVENT withParameters:nil];
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,7 +134,6 @@ static NSString *const FLURRY_VC_ALL_EVENT = @"vc_all_event";
 - (IBAction)onTodayButtonTapped:(id)sender
 {
     UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"nav_today"];
-    [Flurry logAllPageViews:nav];
     [self.mm_drawerController setCenterViewController:nav
                                    withCloseAnimation:YES
                                            completion:nil];

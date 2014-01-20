@@ -9,6 +9,7 @@
 #import "RBZDateViewController.h"
 #import "RBZDateReminder.h"
 #import "RBZUtils.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZDateViewController ()
 
@@ -17,7 +18,7 @@
 
 @end
 
-static NSString *const FLURRY_VC_DATE_VIEW = @"vc_date_view";
+static NSString *const GA_VC_DATE_VIEW = @"Date Picker View";
 
 @implementation RBZDateViewController
 
@@ -57,20 +58,9 @@ static NSString *const FLURRY_VC_DATE_VIEW = @"vc_date_view";
     [self updateSetButtonTitle];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [Flurry logEvent:FLURRY_VC_DATE_VIEW timed:YES];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [Flurry endTimedEvent:FLURRY_VC_DATE_VIEW withParameters:nil];
-    [super viewWillDisappear:animated];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
+    [GoogleAnalyticsHelper trackScreen:GA_VC_DATE_VIEW];
     [self.datePicker addTarget:self
                         action:@selector(onPickerValueChanged:)
               forControlEvents:UIControlEventValueChanged];

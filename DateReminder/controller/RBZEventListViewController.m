@@ -14,6 +14,7 @@
 #import "RBZEventListHeader.h"
 #import "RBZDateReminder.h"
 #import "RBZUtils.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZEventListViewController ()
 
@@ -38,7 +39,8 @@
 
 @end
 
-static NSString *const FLURRY_VC_EVENT_LIST = @"vc_event_list";
+static NSString *const GA_VC_EVENT_LIST = @"Event List View";
+
 static NSString *const DEFAULTS_MENU_BUTTON_HINT = @"dr_menuButtonHint";
 static NSString *EventCellIdentifier = @"cell_event";
 static NSString *NoEventCellIdentifier = @"cell_noEvent";
@@ -132,8 +134,6 @@ static float sectionHeaderHeight = 44.0;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //NSLog(@"viewWillAppear:eventList");
-    [Flurry logEvent:FLURRY_VC_EVENT_LIST timed:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                               selector:@selector(didBecomeActive:)
                                                   name:UIApplicationDidBecomeActiveNotification
@@ -148,15 +148,13 @@ static float sectionHeaderHeight = 44.0;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    //NSLog(@"viewWillDisappear:eventList");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [Flurry endTimedEvent:FLURRY_VC_EVENT_LIST withParameters:nil];
     [super viewWillDisappear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //NSLog(@"viewDidAppear:eventList");
+    [GoogleAnalyticsHelper trackScreen:GA_VC_EVENT_LIST];
     NSDate *now = [NSDate date];
     if (![RBZUtils onSameDay:now anotherDate:self.displayDate]) {
         [self loadData];

@@ -26,7 +26,6 @@
 		0022757A18784AE200388ED5 /* DateReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0022757918784AE200388ED5 /* DateReminderTests.m */; };
 		0022758418784E1D00388ED5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022758318784E1D00388ED5 /* SystemConfiguration.framework */; };
 		0022758618784E2600388ED5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022758518784E2600388ED5 /* StoreKit.framework */; };
-		0022758A18784E5500388ED5 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022758918784E5500388ED5 /* libFlurry_4.3.0.a */; };
 		0022759418784E6800388ED5 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022758C18784E6800388ED5 /* add.png */; };
 		0022759518784E6800388ED5 /* add_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022758D18784E6800388ED5 /* add_highlighted.png */; };
 		0022759618784E6800388ED5 /* bell_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022758E18784E6800388ED5 /* bell_black.png */; };
@@ -64,6 +63,10 @@
 		0022760D1878521100388ED5 /* RBZIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002276081878521100388ED5 /* RBZIAPHelper.m */; };
 		0022760E1878521100388ED5 /* RBZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0022760A1878521100388ED5 /* RBZUtils.m */; };
 		002276141878526F00388ED5 /* RBZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 002276131878526F00388ED5 /* RBZAppDelegate.m */; };
+		00C047B618892729008FF857 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C047B518892729008FF857 /* libGoogleAnalyticsServices.a */; };
+		00C047B818892751008FF857 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C047B718892751008FF857 /* libz.dylib */; };
+		00C047BA18892D32008FF857 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C047B918892D32008FF857 /* AdSupport.framework */; };
+		00C047BD18892DE6008FF857 /* GoogleAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C047BC18892DE6008FF857 /* GoogleAnalyticsHelper.m */; };
 		7A4BC2E6B64C4E9E996C6FEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FD29872A4F4543A19DA41D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,8 +103,6 @@
 		0022757918784AE200388ED5 /* DateReminderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateReminderTests.m; sourceTree = "<group>"; };
 		0022758318784E1D00388ED5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0022758518784E2600388ED5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		0022758818784E5500388ED5 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		0022758918784E5500388ED5 /* libFlurry_4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.0.a; sourceTree = "<group>"; };
 		0022758C18784E6800388ED5 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		0022758D18784E6800388ED5 /* add_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_highlighted.png; sourceTree = "<group>"; };
 		0022758E18784E6800388ED5 /* bell_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bell_black.png; sourceTree = "<group>"; };
@@ -167,6 +168,17 @@
 		0022760A1878521100388ED5 /* RBZUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZUtils.m; sourceTree = "<group>"; };
 		002276121878526F00388ED5 /* RBZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZAppDelegate.h; sourceTree = "<group>"; };
 		002276131878526F00388ED5 /* RBZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZAppDelegate.m; sourceTree = "<group>"; };
+		00C047AF18892729008FF857 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		00C047B018892729008FF857 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		00C047B118892729008FF857 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		00C047B218892729008FF857 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		00C047B318892729008FF857 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		00C047B418892729008FF857 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		00C047B518892729008FF857 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		00C047B718892751008FF857 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		00C047B918892D32008FF857 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		00C047BB18892DE6008FF857 /* GoogleAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsHelper.h; sourceTree = "<group>"; };
+		00C047BC18892DE6008FF857 /* GoogleAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsHelper.m; sourceTree = "<group>"; };
 		8542B18BB8FC47FAB55020E9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D2FD29872A4F4543A19DA41D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -176,12 +188,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C047BA18892D32008FF857 /* AdSupport.framework in Frameworks */,
+				00C047B818892751008FF857 /* libz.dylib in Frameworks */,
 				0022758618784E2600388ED5 /* StoreKit.framework in Frameworks */,
 				0022758418784E1D00388ED5 /* SystemConfiguration.framework in Frameworks */,
+				00C047B618892729008FF857 /* libGoogleAnalyticsServices.a in Frameworks */,
 				0022755118784AE200388ED5 /* CoreGraphics.framework in Frameworks */,
 				0022755518784AE200388ED5 /* CoreData.framework in Frameworks */,
 				0022755318784AE200388ED5 /* UIKit.framework in Frameworks */,
-				0022758A18784E5500388ED5 /* libFlurry_4.3.0.a in Frameworks */,
 				0022754F18784AE200388ED5 /* Foundation.framework in Frameworks */,
 				7A4BC2E6B64C4E9E996C6FEA /* libPods.a in Frameworks */,
 			);
@@ -224,6 +238,8 @@
 		0022754D18784AE200388ED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00C047B918892D32008FF857 /* AdSupport.framework */,
+				00C047B718892751008FF857 /* libz.dylib */,
 				0022758518784E2600388ED5 /* StoreKit.framework */,
 				0022758318784E1D00388ED5 /* SystemConfiguration.framework */,
 				0022754E18784AE200388ED5 /* Foundation.framework */,
@@ -239,13 +255,13 @@
 		0022755618784AE200388ED5 /* DateReminder */ = {
 			isa = PBXGroup;
 			children = (
+				00C047AE18892729008FF857 /* GA */,
 				002276021878521100388ED5 /* app */,
 				002275FD187851B400388ED5 /* ui */,
 				002275F01878516C00388ED5 /* view */,
 				002275E3187850EB00388ED5 /* model */,
 				002275C31878507100388ED5 /* controller */,
 				0022758B18784E6800388ED5 /* resources */,
-				0022758718784E5500388ED5 /* Flurry */,
 				0022756518784AE200388ED5 /* Images.xcassets */,
 				002276121878526F00388ED5 /* RBZAppDelegate.h */,
 				002276131878526F00388ED5 /* RBZAppDelegate.m */,
@@ -282,15 +298,6 @@
 				0022757618784AE200388ED5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0022758718784E5500388ED5 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				0022758818784E5500388ED5 /* Flurry.h */,
-				0022758918784E5500388ED5 /* libFlurry_4.3.0.a */,
-			);
-			path = Flurry;
 			sourceTree = "<group>";
 		};
 		0022758B18784E6800388ED5 /* resources */ = {
@@ -398,8 +405,24 @@
 				002276081878521100388ED5 /* RBZIAPHelper.m */,
 				002276091878521100388ED5 /* RBZUtils.h */,
 				0022760A1878521100388ED5 /* RBZUtils.m */,
+				00C047BB18892DE6008FF857 /* GoogleAnalyticsHelper.h */,
+				00C047BC18892DE6008FF857 /* GoogleAnalyticsHelper.m */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		00C047AE18892729008FF857 /* GA */ = {
+			isa = PBXGroup;
+			children = (
+				00C047AF18892729008FF857 /* GAI.h */,
+				00C047B018892729008FF857 /* GAIDictionaryBuilder.h */,
+				00C047B118892729008FF857 /* GAIFields.h */,
+				00C047B218892729008FF857 /* GAILogger.h */,
+				00C047B318892729008FF857 /* GAITrackedViewController.h */,
+				00C047B418892729008FF857 /* GAITracker.h */,
+				00C047B518892729008FF857 /* libGoogleAnalyticsServices.a */,
+			);
+			path = GA;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -575,6 +598,7 @@
 				0022760E1878521100388ED5 /* RBZUtils.m in Sources */,
 				002275ED187850EB00388ED5 /* EventDate+Functions.m in Sources */,
 				002275EF187850EB00388ED5 /* EventTime+Functions.m in Sources */,
+				00C047BD18892DE6008FF857 /* GoogleAnalyticsHelper.m in Sources */,
 				002275DE1878507100388ED5 /* RBZReminderViewController.m in Sources */,
 				0008E2D1187AA58C00AF1D56 /* RBZDateReminderTest.m in Sources */,
 				002275DB1878507100388ED5 /* RBZDateViewController.m in Sources */,
@@ -706,6 +730,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/robin/Dev/ios/DateReminder/DateReminder/Flurry,
+					/Users/robin/Dev/repositories/DateReminder/DateReminder/GA,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -728,6 +753,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/robin/Dev/ios/DateReminder/DateReminder/Flurry,
+					/Users/robin/Dev/repositories/DateReminder/DateReminder/GA,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

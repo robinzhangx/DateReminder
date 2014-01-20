@@ -7,6 +7,7 @@
 //
 
 #import "RBZDateReminder.h"
+#import "GoogleAnalyticsHelper.h"
 
 @implementation RBZDateReminder
 
@@ -159,7 +160,10 @@ static NSString *LOCAL_NOTIFICATION_KEY = @"event_id";
     NSArray *notifs = [[UIApplication sharedApplication] scheduledLocalNotifications];
     if ([notifs count] >= 64) {
         NSLog(@"Local notification exceeded maximum");
-        [Flurry logEvent:FLURRY_LOCAL_NOTIFICATION_MAXIMUM_REACHED];
+        [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_ERROR
+                                               action:GA_ACTION_LOCAL_NOTIFICATION_EXCEED
+                                                label:nil
+                                                value:nil];
     }
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)

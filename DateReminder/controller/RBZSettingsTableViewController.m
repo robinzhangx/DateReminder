@@ -11,6 +11,7 @@
 #import "RBZEventListViewController.h"
 #import "RBZDateReminder.h"
 #import "RBZIAPHelper.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZSettingsTableViewController ()
 
@@ -90,7 +91,10 @@
 
 - (void)onContactAuthorTapped
 {
-    [Flurry logEvent:FLURRY_CONTACT_AUTHOR];
+    [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_USER
+                                           action:GA_ACTION_CONTACT_AUTHOR
+                                            label:nil
+                                            value:nil];
     NSString *subject = [NSString stringWithFormat:@"[Date Reminder]"];
     NSString *mail = [NSString stringWithFormat:@"robin.zhangx@gmail.com"];
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"mailto:?to=%@&subject=%@",
@@ -101,7 +105,10 @@
 
 - (void)onBuyCoffeeTapped
 {
-    [Flurry logEvent:FLURRY_BUY_COFFEE];
+    [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_USER
+                                           action:GA_ACTION_BUY_COFFEE
+                                            label:nil
+                                            value:nil];
     SKProduct *product = self.iapProducts[0];
     NSLog(@"Buying %@...", product.productIdentifier);
     if (product)

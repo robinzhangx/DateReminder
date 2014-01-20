@@ -15,6 +15,7 @@
 #import "RBZDateValueViewController.h"
 #import "RBZDateReminder.h"
 #import "RBZUtils.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface RBZEventViewController ()
 
@@ -41,7 +42,7 @@
 
 @end
 
-static NSString *const FLURRY_VC_EVENT_VIEW = @"vc_event_view";
+static NSString *const GA_VC_EVENT_VIEW = @"Event View";
 
 @implementation RBZEventViewController
 
@@ -115,8 +116,6 @@ static NSString *reminderLabelHint = @"<Set reminder>";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //NSLog(@"viewWillAppear:event");
-    [Flurry logEvent:FLURRY_VC_EVENT_VIEW timed:YES];
     if (self.mm_drawerController) {
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
         [self.mm_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeNone];
@@ -127,14 +126,12 @@ static NSString *reminderLabelHint = @"<Set reminder>";
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    //NSLog(@"viewWillDisappear:event");
-    [Flurry endTimedEvent:FLURRY_VC_EVENT_VIEW withParameters:nil];
     [super viewWillDisappear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //NSLog(@"viewDidAppear:event");
+    [GoogleAnalyticsHelper trackScreen:GA_VC_EVENT_VIEW];
     NSString *str = [self.eventText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([str length] == 0 || [str isEqualToString:eventTextHint]) {
         if (!self.event
@@ -237,12 +234,22 @@ static NSString *reminderLabelHint = @"<Set reminder>";
     event.time = time;
     event.reminder = reminder;
     [localContext MR_saveToPersistentStoreAndWait];
-    NSLog(@"%@", [[[event objectID] URIRepresentation] absoluteString]);
-    NSLog(@"%@", [[[event.date objectID] URIRepresentation] absoluteString]);
-    NSLog(@"%@", [[[event.time objectID] URIRepresentation] absoluteString]);
-    NSLog(@"%@", [[[event.reminder objectID] URIRepresentation] absoluteString]);
-    [Flurry logEvent:FLURRY_CREATE_EVENT
-      withParameters:@{ @"type":[NSString stringWithFormat:@"%d", [event.date.type integerValue]] }];
+    //NSLog(@"%@", [[[event objectID] URIRepresentation] absoluteString]);
+    //NSLog(@"%@", [[[event.date objectID] URIRepresentation] absoluteString]);
+    //NSLog(@"%@", [[[event.time objectID] URIRepresentation] absoluteString]);
+    //NSLog(@"%@", [[[event.reminder objectID] URIRepresentation] absoluteString]);
+    
+    NSString *typeStr = [NSString stringWithFormat:@"%d", [event.date.type integerValue]];
+    NSString *reminderStr;
+    if ([event.reminder.hasReminder boolValue]) {
+        reminderStr = [NSString stringWithFormat:@"%d", [event.reminder.minutesBefore integerValue]];
+    } else {
+        reminderStr = @"no";
+    }
+    [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_USER
+                                           action:GA_ACTION_CREATE_EVENT
+                                            label:[NSString stringWithFormat:GA_LABEL_CREATE_EVENT, typeStr, reminderStr]
+                                            value:event.date.type];
     return event;
 }
 
@@ -254,7 +261,10 @@ static NSString *reminderLabelHint = @"<Set reminder>";
         [self.delegate eventCreated:event];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
-        [Flurry logEvent:FLURRY_CREATE_EVENT_INVALIDATE];
+        [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_USER
+                                               action:GA_ACTION_CREATE_INVALIDATE
+                                                label:nil
+                                                value:nil];
     }
 }
 
@@ -271,8 +281,11 @@ static NSString *reminderLabelHint = @"<Set reminder>";
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        [Flurry logEvent:FLURRY_DELETE_EVENT
-          withParameters:@{ @"type":[NSString stringWithFormat:@"%d", [self.event.date.type integerValue]] }];
+        NSString *typeStr = [NSString stringWithFormat:@"%d", [self.event.date.type integerValue]];
+        [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_USER
+                                               action:GA_ACTION_DELETE_EVENT
+                                                label:[NSString stringWithFormat:GA_LABEL_DELETE_EVENT, typeStr]
+                                                value:nil];
         NSManagedObjectContext *localContext = [NSManagedObjectContext MR_defaultContext];
         [self.event MR_deleteInContext:localContext];
         [localContext MR_saveToPersistentStoreAndWait];

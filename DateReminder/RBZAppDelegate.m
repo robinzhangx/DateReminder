@@ -13,7 +13,6 @@
 #import "MMDrawerVisualState.h"
 #import "RBZEventListViewController.h"
 #import "RBZIAPHelper.h"
-#import "Flurry.h"
 #import "iRate.h"
 #import "RBZDateReminderTest.h"
 
@@ -32,14 +31,13 @@
     [RBZIAPHelper sharedInstance];
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"dr.sqlite"];
 
-    [Flurry setCrashReportingEnabled:YES];
-    [Flurry startSession:@"NS5N78DD2VSW4W2G9NB6"];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-47257351-1"];
     
     self.dateReminder = [RBZDateReminder instance];
     
     UINavigationController *root = (UINavigationController *)self.window.rootViewController;
-    [Flurry logAllPageViews:root];
-    
+
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"main" bundle:nil];
     RBZSettingsViewController *settings = (RBZSettingsViewController*)[sb instantiateViewControllerWithIdentifier:@"vc_settings"];
     
