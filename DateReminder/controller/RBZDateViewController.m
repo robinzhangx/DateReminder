@@ -116,6 +116,8 @@ static NSString *const GA_VC_DATE_VIEW = @"Date Picker View";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     NSString *str = [dateFormatter stringFromDate:date];
+    [dateFormatter setDateFormat:@"EE"];
+    str = [NSString stringWithFormat:@"%@, %@", [dateFormatter stringFromDate:date], str];
     [self.setButton setTitle:[NSString stringWithFormat:@"Set %@", str] forState:UIControlStateNormal];
 }
 
