@@ -46,10 +46,10 @@ static NSString *const GA_VC_EVENT_VIEW = @"Event View";
 
 @implementation RBZEventViewController
 
-static NSString *eventTextHint = @"<Set event description>";
-static NSString *timeLabelHint = @"<Set time>";
-static NSString *typeLabelHint = @"<Set date>";
-static NSString *reminderLabelHint = @"<Set reminder>";
+static NSString *eventTextHint = @"<Event Notes>";
+static NSString *timeLabelHint = @"<Set Time>";
+static NSString *typeLabelHint = @"<Set Date>";
+static NSString *reminderLabelHint = @"<Set Reminder>";
 
 - (void)viewDidLoad
 {
