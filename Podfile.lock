@@ -13,15 +13,18 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.1):
     - MMDrawerController/Core
+  - UITableView-NXEmptyView (0.1.4)
 
 DEPENDENCIES:
   - iRate
   - MagicalRecord (~> 2.2)
   - MMDrawerController
+  - UITableView-NXEmptyView
 
 SPEC CHECKSUMS:
-  iRate: b8ee95606b5cb24ba6f8b71c2673b04968254337
+  iRate: c078290b7477ff01a1890aed221306c73ddaa247
   MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
   MMDrawerController: 3e22aec684dbee5307ff9d1e76523003a3303a2d
+  UITableView-NXEmptyView: 034e5162ce7b8e3584d720d0d925c27ea7711220
 
 COCOAPODS: 0.29.0

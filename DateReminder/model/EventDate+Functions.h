@@ -18,6 +18,7 @@ typedef enum {
 
 @interface EventDate (Functions)
 
++ (NSString *)typeString:(NSInteger)type;
 - (NSString *)getTypeString;
 + (NSString *)getDailyString;
 + (NSString *)getDailyValueString;

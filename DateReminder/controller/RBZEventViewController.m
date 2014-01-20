@@ -240,17 +240,11 @@ static NSString *reminderLabelHint = @"<Set Reminder>";
     //NSLog(@"%@", [[[event.time objectID] URIRepresentation] absoluteString]);
     //NSLog(@"%@", [[[event.reminder objectID] URIRepresentation] absoluteString]);
     
-    NSString *typeStr = [NSString stringWithFormat:@"%d", [event.date.type integerValue]];
-    NSString *reminderStr;
-    if ([event.reminder.hasReminder boolValue]) {
-        reminderStr = [NSString stringWithFormat:@"%d", [event.reminder.minutesBefore integerValue]];
-    } else {
-        reminderStr = @"no";
-    }
+    NSString *typeStr = [EventDate typeString:[event.date.type integerValue]];
     [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_USER
                                            action:GA_ACTION_CREATE_EVENT
-                                            label:[NSString stringWithFormat:GA_LABEL_CREATE_EVENT, typeStr, reminderStr]
-                                            value:event.date.type];
+                                            label:typeStr
+                                            value:[event.reminder.hasReminder boolValue] ? event.reminder.minutesBefore : event.reminder.hasReminder];
     return event;
 }
 
@@ -282,11 +276,11 @@ static NSString *reminderLabelHint = @"<Set Reminder>";
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        NSString *typeStr = [NSString stringWithFormat:@"%d", [self.event.date.type integerValue]];
+        NSString *typeStr = [EventDate typeString:[self.event.date.type integerValue]];
         [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_USER
                                                action:GA_ACTION_DELETE_EVENT
-                                                label:[NSString stringWithFormat:GA_LABEL_DELETE_EVENT, typeStr]
-                                                value:nil];
+                                                label:typeStr
+                                                value:[self.event.reminder.hasReminder boolValue] ? self.event.reminder.minutesBefore : self.event.reminder.hasReminder];
         NSManagedObjectContext *localContext = [NSManagedObjectContext MR_defaultContext];
         [self.event MR_deleteInContext:localContext];
         [localContext MR_saveToPersistentStoreAndWait];

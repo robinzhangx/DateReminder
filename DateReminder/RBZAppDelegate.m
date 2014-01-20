@@ -32,7 +32,7 @@
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"dr.sqlite"];
 
     [GAI sharedInstance].trackUncaughtExceptions = YES;
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-47257351-1"];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-47257351-2"];
     
     self.dateReminder = [RBZDateReminder instance];
     

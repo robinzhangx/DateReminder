@@ -18,9 +18,6 @@ static NSString *const GA_ACTION_LOCAL_NOTIFICATION_EXCEED = @"Local Notificatio
 static NSString *const GA_ACTION_CONTACT_AUTHOR = @"Contact Author";
 static NSString *const GA_ACTION_BUY_COFFEE = @"Buy Coffee";
 
-static NSString *const GA_LABEL_CREATE_EVENT = @"Type:%@ Reminder:%@";
-static NSString *const GA_LABEL_DELETE_EVENT = @"Type:%@";
-
 @interface GoogleAnalyticsHelper : NSObject
 
 + (void)trackScreen:(NSString *)screenName;

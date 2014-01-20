@@ -10,6 +10,18 @@
 
 @implementation EventDate (Functions)
 
++ (NSString *)typeString:(NSInteger)type
+{
+    switch (type) {
+        case RBZEventOnce: return @"Once";
+        case RBZEventYearly: return @"Yearly";
+        case RBZEventMonthly: return @"Monthly";
+        case RBZEventWeekly: return @"Weekly";
+        case RBZEventDaily: return @"Daily";
+    }
+    return @"";
+}
+
 - (NSString *)getTypeString
 {
     switch ([self.type integerValue]) {
