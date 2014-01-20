@@ -90,7 +90,6 @@ static NSString *reminderLabelHint = @"<Set Reminder>";
     [self.nextCell addGestureRecognizer:tapNextCell];
     
     self.eventText.delegate = self;
-    [self registerForKeyboardNotifications];
     
     if (self.event) {
         [self.createButton setHidden:YES];
@@ -120,12 +119,14 @@ static NSString *reminderLabelHint = @"<Set Reminder>";
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
         [self.mm_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeNone];
     }
+    [self registerForKeyboardNotifications];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self unregisterForKeyboardNotifications];
     [super viewWillDisappear:animated];
 }
 
@@ -629,12 +630,22 @@ static NSString *reminderLabelHint = @"<Set Reminder>";
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)unregisterForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardDidShowNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
 }
 
 - (void)keyboardWasShown:(NSNotification *)notification
