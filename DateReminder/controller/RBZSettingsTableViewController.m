@@ -72,15 +72,17 @@
 
 - (void)updateBuyAuthorCoffeeLabel
 {
-    SKProduct *baac = self.iapProducts[0];
-    if (baac) {
-        self.buyCoffeeLabel.text = baac.localizedTitle;
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-        [numberFormatter setLocale:baac.priceLocale];
-        NSString *priceStr = [numberFormatter stringFromNumber:baac.price];
-        self.buyCoffeePriceLabel.text = [NSString stringWithFormat:@"%@", priceStr];
+    if (self.iapProducts && [self.iapProducts count] > 0) {
+        SKProduct *baac = self.iapProducts[0];
+        if (baac) {
+            self.buyCoffeeLabel.text = baac.localizedTitle;
+            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+            [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [numberFormatter setLocale:baac.priceLocale];
+            NSString *priceStr = [numberFormatter stringFromNumber:baac.price];
+            self.buyCoffeePriceLabel.text = [NSString stringWithFormat:@"%@", priceStr];
+        }
     }
 }
 
