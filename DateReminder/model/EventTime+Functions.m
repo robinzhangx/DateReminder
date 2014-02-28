@@ -7,6 +7,7 @@
 //
 
 #import "EventTime+Functions.h"
+#import "RBZDateReminder.h"
 
 @implementation EventTime (Functions)
 
@@ -42,14 +43,14 @@
 
 + (NSString *)getTimeString:(NSNumber *)minute hour:(NSNumber *)hour
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     comps.hour = [hour integerValue];
     comps.minute = [minute integerValue];
-    NSDate* date = [gregorian dateFromComponents:comps];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    return [dateFormatter stringFromDate:date];
+    NSDate* date = [calendar dateFromComponents:comps];
+    NSDateFormatter *formatter = [[RBZDateReminder instance] getLocalizedDateFormatter];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    return [formatter stringFromDate:date];
 }
 
 @end

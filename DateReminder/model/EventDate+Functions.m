@@ -7,6 +7,7 @@
 //
 
 #import "EventDate+Functions.h"
+#import "RBZDateReminder.h"
 
 @implementation EventDate (Functions)
 
@@ -41,17 +42,17 @@
 
 + (NSString *)getOnceValueString:(NSNumber *)day month:(NSNumber *)month year:(NSNumber *)year
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     comps.day = [day integerValue];
     comps.month = [month integerValue];
     comps.year = [year integerValue];
-    NSDate* date = [gregorian dateFromComponents:comps];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
-    NSString *str = [dateFormatter stringFromDate:date];
-    [dateFormatter setDateFormat:@"EE"];
-    str = [NSString stringWithFormat:@"%@, %@", [dateFormatter stringFromDate:date], str];
+    NSDate* date = [calendar dateFromComponents:comps];
+    NSDateFormatter *formatter = [[RBZDateReminder instance] getLocalizedDateFormatter];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
+    NSString *str = [formatter stringFromDate:date];
+    [formatter setDateFormat:@"EE"];
+    str = [NSString stringWithFormat:@"%@, %@", [formatter stringFromDate:date], str];
     return str;
 }
 
@@ -72,9 +73,7 @@
 
 + (NSString *)getWeeklyValueString:(NSNumber *)weekday
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setCalendar:gregorian];
+    NSDateFormatter *formatter = [[RBZDateReminder instance] getLocalizedDateFormatter];
     return [formatter weekdaySymbols][[weekday integerValue] - 1];
 }
 
@@ -106,11 +105,8 @@
 
 + (NSString *)getYearlyValueString:(NSNumber *)day month:(NSNumber *)month
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setCalendar:gregorian];
-    return [NSString stringWithFormat:@"%@ %ld", [formatter monthSymbols][[month integerValue] - 1], [day integerValue]];
-
+    NSDateFormatter *formatter = [[RBZDateReminder instance] getLocalizedDateFormatter];
+    return [NSString stringWithFormat:@"%@ %d", [formatter shortMonthSymbols][[month integerValue] - 1], [day integerValue]];
 }
 
 @end

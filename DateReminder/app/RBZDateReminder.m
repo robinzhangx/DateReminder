@@ -18,12 +18,11 @@ static NSString *const DateReminder_localNotificationCleared = @"dr_localNotific
 
 + (RBZDateReminder *)instance
 {
-    @synchronized (self) {
-        if (!instance) {
-            instance = [[RBZDateReminder alloc] init];
-        }
-        return instance;
-    }
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        instance = [[RBZDateReminder alloc] init];
+    });
+    return instance;
 }
 
 - (id)init
@@ -34,7 +33,8 @@ static NSString *const DateReminder_localNotificationCleared = @"dr_localNotific
         NSLog(@"Event:%d, Date:%d, Time:%d, Reminder:%d", [Event MR_countOfEntities], [EventDate MR_countOfEntities], [EventTime MR_countOfEntities], [EventReminder MR_countOfEntities]);
         NSLog(@"Local Notifications:%d", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);
         
-        self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 0.0, 290.0, 162.0)];
+        self.defaultLocale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+        self.defaultCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
@@ -58,6 +58,14 @@ static NSString *const DateReminder_localNotificationCleared = @"dr_localNotific
         
     }
     return self;
+}
+
+- (NSDateFormatter *)getLocalizedDateFormatter
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.calendar = self.defaultCalendar;
+    formatter.locale = self.defaultLocale;
+    return formatter;
 }
 
 - (void)addEvent:(Event *)ev
@@ -220,17 +228,16 @@ static NSString *LOCAL_NOTIFICATION_KEY = @"event_id";
 
 - (void)setupDefaultEvents
 {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDate *now = [NSDate date];
     NSDateComponents *add = [[NSDateComponents alloc] init];
     add.day = 14;
-    NSDate *d = [calendar dateByAddingComponents:add toDate:now options:0];
-    NSDateComponents *comps = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
+    NSDate *d = [self.defaultCalendar dateByAddingComponents:add toDate:now options:0];
+    NSDateComponents *comps = [self.defaultCalendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
                                           fromDate:d];
     
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_defaultContext];
     Event *event = [Event MR_createInContext:localContext];
-    event.title = @"What do you think of Date Reminder?\nYou can help to make it better! Send feedbacks/suggestions to author in menu.";
+    event.title = @"What do you think of Date Reminder?\nDrop author a feedback message or just say hi.";
     EventTime *time = [EventTime MR_createInContext:localContext];
     time.hour = [NSNumber numberWithInteger:15];
     time.minute = [NSNumber numberWithInteger:0];

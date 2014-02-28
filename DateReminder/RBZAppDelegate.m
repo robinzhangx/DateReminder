@@ -10,8 +10,6 @@
 #import "RBZDateReminder.h"
 #import "RBZSettingsViewController.h"
 #import "MMDrawerController.h"
-#import "MMDrawerVisualState.h"
-#import "RBZEventListViewController.h"
 #import "RBZIAPHelper.h"
 #import "iRate.h"
 #import "RBZDateReminderTest.h"
@@ -39,13 +37,13 @@
     UINavigationController *root = (UINavigationController *)self.window.rootViewController;
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"main" bundle:nil];
-    RBZSettingsViewController *settings = (RBZSettingsViewController*)[sb instantiateViewControllerWithIdentifier:@"vc_settings"];
+    UIViewController *settings = (UIViewController*)[sb instantiateViewControllerWithIdentifier:@"vc_settings"];
     
     MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:root
-                                                                           leftDrawerViewController:settings
-                                                                          rightDrawerViewController:nil];
+                                                                           leftDrawerViewController:nil
+                                                                          rightDrawerViewController:settings];
     drawerController.shouldStretchDrawer = NO;
-    [drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideAndScaleVisualStateBlock]];
+    //[drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideAndScaleVisualStateBlock]];
     [self.window setRootViewController:drawerController];
     
     return YES;

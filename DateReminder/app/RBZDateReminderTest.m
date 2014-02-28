@@ -15,7 +15,7 @@
 {
     NSTimeInterval secondsPerDay = 24 * 60 * 60;
     NSDate *tomorrow = [[NSDate alloc] initWithTimeIntervalSinceNow:secondsPerDay];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSDateComponents *comps = [calendar components:NSMinuteCalendarUnit|NSHourCalendarUnit|NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
                                           fromDate:tomorrow];
     

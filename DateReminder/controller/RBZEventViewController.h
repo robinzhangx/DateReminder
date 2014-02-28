@@ -1,39 +1,57 @@
 //
-//  RBZAddEventViewController.h
-//  Date Reminder
+//  RBZEventViewController.h
+//  DateReminder
 //
-//  Created by robin on 13-12-9.
-//  Copyright (c) 2013年 Robin Zhang. All rights reserved.
+//  Created by robin on 2/14/14.
+//  Copyright (c) 2014 Robin Zhang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "Event.h"
-#import "RBZEventDateValueDelegate.h"
+#import "RBZDateReminder.h"
+#import "RBZQuickCalendarPickerView.h"
+#import "RBZQuickReminderPickerView.h"
+#import "RBZArrowView.h"
 
 @protocol RBZEventViewDelegate <NSObject>
-
 - (void)eventDeleted:(Event *)ev;
 - (void)eventCreated:(Event *)ev;
 - (void)eventUpdated:(Event *)ev;
-
 @end
 
-@interface RBZEventViewController
-    : UIViewController <UIAlertViewDelegate, UITextViewDelegate, RBZEventDateValueDelegate>
+@interface RBZEventViewController : UIViewController
+<UIAlertViewDelegate, UITextViewDelegate, UIGestureRecognizerDelegate,
+UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
+RBZQuickCalendarPickerViewDelegate, RBZQuickReminderPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *discardButton;
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
+
+@property (weak, nonatomic) IBOutlet UIView *eventContainerView;
+@property (weak, nonatomic) IBOutlet UIView *textViewContainer;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIView *controlContainer;
+@property (weak, nonatomic) IBOutlet UIView *quickControlView;
+@property (weak, nonatomic) IBOutlet UICollectionView *badgeCollectionView;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+@property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *repeatImageView;
+
+@property (weak, nonatomic) IBOutlet UIView *controlsView;
+@property (weak, nonatomic) IBOutlet UIButton *timeButton;
+@property (weak, nonatomic) IBOutlet UIButton *dateButton;
+@property (weak, nonatomic) IBOutlet UIButton *reminderButton;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *eventContainerTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *quickControlViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *controlViewBottonSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *countdownLabelTrailingSpace;
 
 @property Event *event;
 @property (nonatomic, assign) id<RBZEventViewDelegate> delegate;
-
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITextView *eventText;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *reminderLabel;
-@property (weak, nonatomic) IBOutlet UIButton *timeCell;
-@property (weak, nonatomic) IBOutlet UIButton *typeCell;
-@property (weak, nonatomic) IBOutlet UIButton *reminderCell;
-@property (weak, nonatomic) IBOutlet UIView *nextCell;
-@property (weak, nonatomic) IBOutlet UILabel *nextLabel;
-@property (weak, nonatomic) IBOutlet UIButton *createButton;
+- (IBAction)onTimePicked:(UIStoryboardSegue *)segue;
+- (IBAction)onDatePicked:(UIStoryboardSegue *)segue;
 
 @end

@@ -21,11 +21,11 @@
     if (![hasReminder boolValue])
         return @"No reminder";
     if (m == 1) {
-        return @"1 minute earlier";
+        return @"1 minute early";
     } else if (m == 60) {
-        return @"1 hour earlier";
+        return @"1 hour early";
     } else {
-        return [NSString stringWithFormat:@"%d minutes earlier", m];
+        return [NSString stringWithFormat:@"%ld minutes early", (long)m];
     }
 }
 

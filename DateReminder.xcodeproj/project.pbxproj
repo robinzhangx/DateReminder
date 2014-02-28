@@ -8,8 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		0008E2D1187AA58C00AF1D56 /* RBZDateReminderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0008E2D0187AA58C00AF1D56 /* RBZDateReminderTest.m */; };
-		001D413318795186008D428B /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 001D413218795186008D428B /* bg.png */; };
-		001D6C0C187ADB0F0096A194 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 001D6C0B187ADB0F0096A194 /* bubble.png */; };
+		00186CB418BEF4E00067BC80 /* RBZArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00186CB318BEF4E00067BC80 /* RBZArrowView.m */; };
+		00186CB618BF08C90067BC80 /* EventTimeHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00186CB518BF08C90067BC80 /* EventTimeHintView.xib */; };
+		00186CBC18BF0A550067BC80 /* RBZEventTimeHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00186CBB18BF0A550067BC80 /* RBZEventTimeHintView.m */; };
+		00186CBE18BF1D7C0067BC80 /* EventDateHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00186CBD18BF1D7C0067BC80 /* EventDateHintView.xib */; };
+		00186CC118BF1E070067BC80 /* RBZEventDateHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00186CC018BF1E070067BC80 /* RBZEventDateHintView.m */; };
+		00186CC318BF201B0067BC80 /* EventReminderHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00186CC218BF201B0067BC80 /* EventReminderHintView.xib */; };
+		00186CC618BF20440067BC80 /* RBZEventReminderHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00186CC518BF20440067BC80 /* RBZEventReminderHintView.m */; };
+		001C8C1D18BA340F0065A370 /* Albums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C1C18BA340F0065A370 /* Albums@2x.png */; };
+		001C8C1F18BA34600065A370 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C1E18BA34600065A370 /* Settings@2x.png */; };
+		001C8C2318BA39360065A370 /* Favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C2018BA39360065A370 /* Favorites@2x.png */; };
+		001C8C2418BA39360065A370 /* Mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C2118BA39360065A370 /* Mail@2x.png */; };
+		001C8C2518BA39360065A370 /* Thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C2218BA39360065A370 /* Thumb@2x.png */; };
+		001D003A18B1AD250006B9EA /* QuickCalendarPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001D003918B1AD250006B9EA /* QuickCalendarPickerView.xib */; };
+		001D003D18B1C0D60006B9EA /* RBZQuickCalendarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 001D003C18B1C0D60006B9EA /* RBZQuickCalendarPickerView.m */; };
+		001D003F18B204E20006B9EA /* QuickReminderPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001D003E18B204E20006B9EA /* QuickReminderPickerView.xib */; };
+		001D004218B21ED80006B9EA /* RBZQuickReminderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 001D004118B21ED80006B9EA /* RBZQuickReminderPickerView.m */; };
+		001DC24518BA1C30002AA0EA /* BackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001DC24418BA1C30002AA0EA /* BackArrow@2x.png */; };
+		001DC24718BA2479002AA0EA /* Repeat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001DC24618BA2479002AA0EA /* Repeat@2x.png */; };
+		001F056E18BB1928005C8303 /* RBZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001F056D18BB1928005C8303 /* RBZSettingsViewController.m */; };
+		001F057118BB2783005C8303 /* RBZArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001F057018BB2783005C8303 /* RBZArchiveViewController.m */; };
+		001F649A18BB735800F596A0 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F649918BB735800F596A0 /* Background@2x.png */; };
+		001F649D18BBB81500F596A0 /* AlbumsSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F649B18BBB81500F596A0 /* AlbumsSelected@2x.png */; };
+		001F649E18BBB81500F596A0 /* SettingsSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F649C18BBB81500F596A0 /* SettingsSelected@2x.png */; };
+		001F65B018B8759D00CDA772 /* Calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F65AF18B8759D00CDA772 /* Calendar@2x.png */; };
+		001F65B218B876F500CDA772 /* Clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F65B118B876F500CDA772 /* Clock@2x.png */; };
+		001F65B418B8789E00CDA772 /* Tones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F65B318B8789E00CDA772 /* Tones@2x.png */; };
+		001F65B818B87A5900CDA772 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F65B718B87A5900CDA772 /* Info@2x.png */; };
+		001F65BA18B87C2C00CDA772 /* Backward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F65B918B87C2C00CDA772 /* Backward@2x.png */; };
+		001F65BC18B87DFB00CDA772 /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001F65BB18B87DFB00CDA772 /* Forward@2x.png */; };
+		001F7BBD18ADB82E00115C16 /* RBZEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001F7BBC18ADB82E00115C16 /* RBZEventViewController.m */; };
+		0021B0F818BCCF2500F38E2B /* ArchiveTableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0021B0F718BCCF2500F38E2B /* ArchiveTableSectionHeader.xib */; };
+		0021B0FB18BCD06300F38E2B /* RBZArchiveTableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0021B0FA18BCD06300F38E2B /* RBZArchiveTableSectionHeaderView.m */; };
+		0021B0FF18BCD4AC00F38E2B /* RBZArchiveListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0021B0FE18BCD4AC00F38E2B /* RBZArchiveListCell.m */; };
+		0021B10118BCFE4F00F38E2B /* UpArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0021B10018BCFE4F00F38E2B /* UpArrow@2x.png */; };
+		0021B10318BCFF0D00F38E2B /* Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0021B10218BCFF0D00F38E2B /* Close@2x.png */; };
+		0022722D18AF854E0077078C /* RBZTimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0022722C18AF854E0077078C /* RBZTimePickerViewController.m */; };
+		0022723518B09B560077078C /* RBZDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0022723418B09B560077078C /* RBZDatePickerViewController.m */; };
+		0022723718B0AF320077078C /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0022723618B0AF320077078C /* DatePickerView.xib */; };
+		0022723A18B0B0E50077078C /* RBZDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0022723918B0B0E50077078C /* RBZDatePickerView.m */; };
+		0022723C18B0D92F0077078C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022723B18B0D92F0077078C /* AudioToolbox.framework */; };
 		0022754F18784AE200388ED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022754E18784AE200388ED5 /* Foundation.framework */; };
 		0022755118784AE200388ED5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022755018784AE200388ED5 /* CoreGraphics.framework */; };
 		0022755318784AE200388ED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022755218784AE200388ED5 /* UIKit.framework */; };
@@ -26,47 +64,34 @@
 		0022757A18784AE200388ED5 /* DateReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0022757918784AE200388ED5 /* DateReminderTests.m */; };
 		0022758418784E1D00388ED5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022758318784E1D00388ED5 /* SystemConfiguration.framework */; };
 		0022758618784E2600388ED5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022758518784E2600388ED5 /* StoreKit.framework */; };
-		0022759418784E6800388ED5 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022758C18784E6800388ED5 /* add.png */; };
-		0022759518784E6800388ED5 /* add_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022758D18784E6800388ED5 /* add_highlighted.png */; };
-		0022759618784E6800388ED5 /* bell_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022758E18784E6800388ED5 /* bell_black.png */; };
-		0022759718784E6800388ED5 /* calendar_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022758F18784E6800388ED5 /* calendar_black.png */; };
-		0022759818784E6800388ED5 /* clock_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022759018784E6800388ED5 /* clock_black.png */; };
-		0022759918784E6800388ED5 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022759118784E6800388ED5 /* logo.png */; };
-		0022759A18784E6800388ED5 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022759218784E6800388ED5 /* menu.png */; };
-		0022759B18784E6800388ED5 /* menu_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0022759318784E6800388ED5 /* menu_highlighted.png */; };
 		002275B718784F1C00388ED5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275B618784F1C00388ED5 /* Event.m */; };
 		002275BA18784F1C00388ED5 /* EventDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275B918784F1C00388ED5 /* EventDate.m */; };
 		002275BD18784F1C00388ED5 /* EventTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275BC18784F1C00388ED5 /* EventTime.m */; };
 		002275C018784F1C00388ED5 /* EventReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275BF18784F1C00388ED5 /* EventReminder.m */; };
-		002275D91878507100388ED5 /* RBZAllEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275C51878507100388ED5 /* RBZAllEventViewController.m */; };
-		002275DA1878507100388ED5 /* RBZDateValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275C71878507100388ED5 /* RBZDateValueViewController.m */; };
-		002275DB1878507100388ED5 /* RBZDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275C91878507100388ED5 /* RBZDateViewController.m */; };
-		002275DC1878507100388ED5 /* RBZEventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275CC1878507100388ED5 /* RBZEventListViewController.m */; };
-		002275DD1878507100388ED5 /* RBZEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275CE1878507100388ED5 /* RBZEventViewController.m */; };
-		002275DE1878507100388ED5 /* RBZReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275D01878507100388ED5 /* RBZReminderViewController.m */; };
-		002275DF1878507100388ED5 /* RBZSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275D21878507100388ED5 /* RBZSettingsTableViewController.m */; };
-		002275E01878507100388ED5 /* RBZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275D41878507100388ED5 /* RBZSettingsViewController.m */; };
-		002275E11878507100388ED5 /* RBZTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275D61878507100388ED5 /* RBZTimeViewController.m */; };
-		002275E21878507100388ED5 /* RBZTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275D81878507100388ED5 /* RBZTypeViewController.m */; };
 		002275EC187850EB00388ED5 /* Event+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275E5187850EB00388ED5 /* Event+Functions.m */; };
 		002275ED187850EB00388ED5 /* EventDate+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275E7187850EB00388ED5 /* EventDate+Functions.m */; };
 		002275EE187850EB00388ED5 /* EventReminder+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275E9187850EB00388ED5 /* EventReminder+Functions.m */; };
 		002275EF187850EB00388ED5 /* EventTime+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275EB187850EB00388ED5 /* EventTime+Functions.m */; };
-		002275F91878516C00388ED5 /* RBZAllEventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275F21878516C00388ED5 /* RBZAllEventListCell.m */; };
-		002275FA1878516C00388ED5 /* RBZDateTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275F41878516C00388ED5 /* RBZDateTypeCell.m */; };
 		002275FB1878516C00388ED5 /* RBZEventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275F61878516C00388ED5 /* RBZEventListCell.m */; };
-		002275FC1878516C00388ED5 /* RBZEventListHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 002275F81878516C00388ED5 /* RBZEventListHeader.m */; };
-		00227600187851B400388ED5 /* EventListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002275FE187851B400388ED5 /* EventListHeader.xib */; };
 		00227601187851B400388ED5 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002275FF187851B400388ED5 /* main.storyboard */; };
 		0022760B1878521100388ED5 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002276041878521100388ED5 /* IAPHelper.m */; };
 		0022760C1878521100388ED5 /* RBZDateReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 002276061878521100388ED5 /* RBZDateReminder.m */; };
 		0022760D1878521100388ED5 /* RBZIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002276081878521100388ED5 /* RBZIAPHelper.m */; };
 		0022760E1878521100388ED5 /* RBZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0022760A1878521100388ED5 /* RBZUtils.m */; };
 		002276141878526F00388ED5 /* RBZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 002276131878526F00388ED5 /* RBZAppDelegate.m */; };
+		0031D0BF18AB40B000DBAE59 /* RBZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0031D0BE18AB40B000DBAE59 /* RBZMainViewController.m */; };
+		00555ACE18B8D708009C839A /* RBZEventBadgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00555ACD18B8D708009C839A /* RBZEventBadgeCell.m */; };
+		00555AD118B8F3F6009C839A /* RBZEventBadgeFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00555AD018B8F3F6009C839A /* RBZEventBadgeFlowLayout.m */; };
+		00965B1118B49CDA00550E59 /* WeeklyPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00965B1018B49CDA00550E59 /* WeeklyPickerView.xib */; };
+		00965B1418B4A0F800550E59 /* RBZWeeklyPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00965B1318B4A0F800550E59 /* RBZWeeklyPickerView.m */; };
+		00965B1618B4A94B00550E59 /* MonthlyPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00965B1518B4A94B00550E59 /* MonthlyPickerView.xib */; };
 		00C047B618892729008FF857 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C047B518892729008FF857 /* libGoogleAnalyticsServices.a */; };
 		00C047B818892751008FF857 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C047B718892751008FF857 /* libz.dylib */; };
 		00C047BA18892D32008FF857 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C047B918892D32008FF857 /* AdSupport.framework */; };
 		00C047BD18892DE6008FF857 /* GoogleAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C047BC18892DE6008FF857 /* GoogleAnalyticsHelper.m */; };
+		00CEBB7818B4FFF700D109D9 /* RBZMonthlyPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CEBB7718B4FFF700D109D9 /* RBZMonthlyPickerView.m */; };
+		00CEBB7A18B50F9C00D109D9 /* YearlyPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CEBB7918B50F9C00D109D9 /* YearlyPickerView.xib */; };
+		00CEBB7D18B50FDE00D109D9 /* RBZYearlyPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CEBB7C18B50FDE00D109D9 /* RBZYearlyPickerView.m */; };
 		7A4BC2E6B64C4E9E996C6FEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FD29872A4F4543A19DA41D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -83,8 +108,61 @@
 /* Begin PBXFileReference section */
 		0008E2CF187AA58C00AF1D56 /* RBZDateReminderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZDateReminderTest.h; sourceTree = "<group>"; };
 		0008E2D0187AA58C00AF1D56 /* RBZDateReminderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZDateReminderTest.m; sourceTree = "<group>"; };
-		001D413218795186008D428B /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
-		001D6C0B187ADB0F0096A194 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
+		00186CB218BEF4E00067BC80 /* RBZArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZArrowView.h; sourceTree = "<group>"; };
+		00186CB318BEF4E00067BC80 /* RBZArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZArrowView.m; sourceTree = "<group>"; };
+		00186CB518BF08C90067BC80 /* EventTimeHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTimeHintView.xib; sourceTree = "<group>"; };
+		00186CBA18BF0A550067BC80 /* RBZEventTimeHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventTimeHintView.h; sourceTree = "<group>"; };
+		00186CBB18BF0A550067BC80 /* RBZEventTimeHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventTimeHintView.m; sourceTree = "<group>"; };
+		00186CBD18BF1D7C0067BC80 /* EventDateHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDateHintView.xib; sourceTree = "<group>"; };
+		00186CBF18BF1E070067BC80 /* RBZEventDateHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventDateHintView.h; sourceTree = "<group>"; };
+		00186CC018BF1E070067BC80 /* RBZEventDateHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventDateHintView.m; sourceTree = "<group>"; };
+		00186CC218BF201B0067BC80 /* EventReminderHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventReminderHintView.xib; sourceTree = "<group>"; };
+		00186CC418BF20440067BC80 /* RBZEventReminderHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventReminderHintView.h; sourceTree = "<group>"; };
+		00186CC518BF20440067BC80 /* RBZEventReminderHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventReminderHintView.m; sourceTree = "<group>"; };
+		001C8C1C18BA340F0065A370 /* Albums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Albums@2x.png"; sourceTree = "<group>"; };
+		001C8C1E18BA34600065A370 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
+		001C8C2018BA39360065A370 /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorites@2x.png"; sourceTree = "<group>"; };
+		001C8C2118BA39360065A370 /* Mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mail@2x.png"; sourceTree = "<group>"; };
+		001C8C2218BA39360065A370 /* Thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Thumb@2x.png"; sourceTree = "<group>"; };
+		001D003918B1AD250006B9EA /* QuickCalendarPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickCalendarPickerView.xib; sourceTree = "<group>"; };
+		001D003B18B1C0D60006B9EA /* RBZQuickCalendarPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZQuickCalendarPickerView.h; sourceTree = "<group>"; };
+		001D003C18B1C0D60006B9EA /* RBZQuickCalendarPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZQuickCalendarPickerView.m; sourceTree = "<group>"; };
+		001D003E18B204E20006B9EA /* QuickReminderPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickReminderPickerView.xib; sourceTree = "<group>"; };
+		001D004018B21ED80006B9EA /* RBZQuickReminderPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZQuickReminderPickerView.h; sourceTree = "<group>"; };
+		001D004118B21ED80006B9EA /* RBZQuickReminderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZQuickReminderPickerView.m; sourceTree = "<group>"; };
+		001DC24418BA1C30002AA0EA /* BackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackArrow@2x.png"; sourceTree = "<group>"; };
+		001DC24618BA2479002AA0EA /* Repeat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Repeat@2x.png"; sourceTree = "<group>"; };
+		001F056C18BB1928005C8303 /* RBZSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZSettingsViewController.h; sourceTree = "<group>"; };
+		001F056D18BB1928005C8303 /* RBZSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZSettingsViewController.m; sourceTree = "<group>"; };
+		001F056F18BB2783005C8303 /* RBZArchiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZArchiveViewController.h; sourceTree = "<group>"; };
+		001F057018BB2783005C8303 /* RBZArchiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZArchiveViewController.m; sourceTree = "<group>"; };
+		001F649918BB735800F596A0 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		001F649B18BBB81500F596A0 /* AlbumsSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlbumsSelected@2x.png"; sourceTree = "<group>"; };
+		001F649C18BBB81500F596A0 /* SettingsSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsSelected@2x.png"; sourceTree = "<group>"; };
+		001F65AF18B8759D00CDA772 /* Calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calendar@2x.png"; sourceTree = "<group>"; };
+		001F65B118B876F500CDA772 /* Clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clock@2x.png"; sourceTree = "<group>"; };
+		001F65B318B8789E00CDA772 /* Tones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tones@2x.png"; sourceTree = "<group>"; };
+		001F65B718B87A5900CDA772 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
+		001F65B918B87C2C00CDA772 /* Backward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Backward@2x.png"; sourceTree = "<group>"; };
+		001F65BB18B87DFB00CDA772 /* Forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Forward@2x.png"; sourceTree = "<group>"; };
+		001F7BBB18ADB82E00115C16 /* RBZEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventViewController.h; sourceTree = "<group>"; };
+		001F7BBC18ADB82E00115C16 /* RBZEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventViewController.m; sourceTree = "<group>"; };
+		0021B0F718BCCF2500F38E2B /* ArchiveTableSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveTableSectionHeader.xib; sourceTree = "<group>"; };
+		0021B0F918BCD06300F38E2B /* RBZArchiveTableSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZArchiveTableSectionHeaderView.h; sourceTree = "<group>"; };
+		0021B0FA18BCD06300F38E2B /* RBZArchiveTableSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZArchiveTableSectionHeaderView.m; sourceTree = "<group>"; };
+		0021B0FC18BCD46A00F38E2B /* RBZEventListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBZEventListCell.h; sourceTree = "<group>"; };
+		0021B0FD18BCD4AC00F38E2B /* RBZArchiveListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZArchiveListCell.h; sourceTree = "<group>"; };
+		0021B0FE18BCD4AC00F38E2B /* RBZArchiveListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZArchiveListCell.m; sourceTree = "<group>"; };
+		0021B10018BCFE4F00F38E2B /* UpArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UpArrow@2x.png"; sourceTree = "<group>"; };
+		0021B10218BCFF0D00F38E2B /* Close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Close@2x.png"; sourceTree = "<group>"; };
+		0022722B18AF854E0077078C /* RBZTimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZTimePickerViewController.h; sourceTree = "<group>"; };
+		0022722C18AF854E0077078C /* RBZTimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZTimePickerViewController.m; sourceTree = "<group>"; };
+		0022723318B09B560077078C /* RBZDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZDatePickerViewController.h; sourceTree = "<group>"; };
+		0022723418B09B560077078C /* RBZDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZDatePickerViewController.m; sourceTree = "<group>"; };
+		0022723618B0AF320077078C /* DatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		0022723818B0B0E50077078C /* RBZDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZDatePickerView.h; sourceTree = "<group>"; };
+		0022723918B0B0E50077078C /* RBZDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZDatePickerView.m; sourceTree = "<group>"; };
+		0022723B18B0D92F0077078C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0022754B18784AE200388ED5 /* DateReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DateReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0022754E18784AE200388ED5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0022755018784AE200388ED5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,14 +181,6 @@
 		0022757918784AE200388ED5 /* DateReminderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateReminderTests.m; sourceTree = "<group>"; };
 		0022758318784E1D00388ED5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0022758518784E2600388ED5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		0022758C18784E6800388ED5 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
-		0022758D18784E6800388ED5 /* add_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_highlighted.png; sourceTree = "<group>"; };
-		0022758E18784E6800388ED5 /* bell_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bell_black.png; sourceTree = "<group>"; };
-		0022758F18784E6800388ED5 /* calendar_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_black.png; sourceTree = "<group>"; };
-		0022759018784E6800388ED5 /* clock_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_black.png; sourceTree = "<group>"; };
-		0022759118784E6800388ED5 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		0022759218784E6800388ED5 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
-		0022759318784E6800388ED5 /* menu_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_highlighted.png; sourceTree = "<group>"; };
 		002275B518784F1C00388ED5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		002275B618784F1C00388ED5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		002275B818784F1C00388ED5 /* EventDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDate.h; path = ../EventDate.h; sourceTree = "<group>"; };
@@ -119,27 +189,6 @@
 		002275BC18784F1C00388ED5 /* EventTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventTime.m; path = ../EventTime.m; sourceTree = "<group>"; };
 		002275BE18784F1C00388ED5 /* EventReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventReminder.h; path = ../EventReminder.h; sourceTree = "<group>"; };
 		002275BF18784F1C00388ED5 /* EventReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventReminder.m; path = ../EventReminder.m; sourceTree = "<group>"; };
-		002275C41878507100388ED5 /* RBZAllEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZAllEventViewController.h; sourceTree = "<group>"; };
-		002275C51878507100388ED5 /* RBZAllEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZAllEventViewController.m; sourceTree = "<group>"; };
-		002275C61878507100388ED5 /* RBZDateValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZDateValueViewController.h; sourceTree = "<group>"; };
-		002275C71878507100388ED5 /* RBZDateValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZDateValueViewController.m; sourceTree = "<group>"; };
-		002275C81878507100388ED5 /* RBZDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZDateViewController.h; sourceTree = "<group>"; };
-		002275C91878507100388ED5 /* RBZDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZDateViewController.m; sourceTree = "<group>"; };
-		002275CA1878507100388ED5 /* RBZEventDateValueDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventDateValueDelegate.h; sourceTree = "<group>"; };
-		002275CB1878507100388ED5 /* RBZEventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventListViewController.h; sourceTree = "<group>"; };
-		002275CC1878507100388ED5 /* RBZEventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventListViewController.m; sourceTree = "<group>"; };
-		002275CD1878507100388ED5 /* RBZEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventViewController.h; sourceTree = "<group>"; };
-		002275CE1878507100388ED5 /* RBZEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventViewController.m; sourceTree = "<group>"; };
-		002275CF1878507100388ED5 /* RBZReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZReminderViewController.h; sourceTree = "<group>"; };
-		002275D01878507100388ED5 /* RBZReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZReminderViewController.m; sourceTree = "<group>"; };
-		002275D11878507100388ED5 /* RBZSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZSettingsTableViewController.h; sourceTree = "<group>"; };
-		002275D21878507100388ED5 /* RBZSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZSettingsTableViewController.m; sourceTree = "<group>"; };
-		002275D31878507100388ED5 /* RBZSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZSettingsViewController.h; sourceTree = "<group>"; };
-		002275D41878507100388ED5 /* RBZSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZSettingsViewController.m; sourceTree = "<group>"; };
-		002275D51878507100388ED5 /* RBZTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZTimeViewController.h; sourceTree = "<group>"; };
-		002275D61878507100388ED5 /* RBZTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZTimeViewController.m; sourceTree = "<group>"; };
-		002275D71878507100388ED5 /* RBZTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZTypeViewController.h; sourceTree = "<group>"; };
-		002275D81878507100388ED5 /* RBZTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZTypeViewController.m; sourceTree = "<group>"; };
 		002275E4187850EB00388ED5 /* Event+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Functions.h"; sourceTree = "<group>"; };
 		002275E5187850EB00388ED5 /* Event+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Functions.m"; sourceTree = "<group>"; };
 		002275E6187850EB00388ED5 /* EventDate+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventDate+Functions.h"; sourceTree = "<group>"; };
@@ -148,15 +197,7 @@
 		002275E9187850EB00388ED5 /* EventReminder+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventReminder+Functions.m"; sourceTree = "<group>"; };
 		002275EA187850EB00388ED5 /* EventTime+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventTime+Functions.h"; sourceTree = "<group>"; };
 		002275EB187850EB00388ED5 /* EventTime+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventTime+Functions.m"; sourceTree = "<group>"; };
-		002275F11878516C00388ED5 /* RBZAllEventListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZAllEventListCell.h; sourceTree = "<group>"; };
-		002275F21878516C00388ED5 /* RBZAllEventListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZAllEventListCell.m; sourceTree = "<group>"; };
-		002275F31878516C00388ED5 /* RBZDateTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZDateTypeCell.h; sourceTree = "<group>"; };
-		002275F41878516C00388ED5 /* RBZDateTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZDateTypeCell.m; sourceTree = "<group>"; };
-		002275F51878516C00388ED5 /* RBZEventListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventListCell.h; sourceTree = "<group>"; };
 		002275F61878516C00388ED5 /* RBZEventListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventListCell.m; sourceTree = "<group>"; };
-		002275F71878516C00388ED5 /* RBZEventListHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventListHeader.h; sourceTree = "<group>"; };
-		002275F81878516C00388ED5 /* RBZEventListHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventListHeader.m; sourceTree = "<group>"; };
-		002275FE187851B400388ED5 /* EventListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventListHeader.xib; sourceTree = "<group>"; };
 		002275FF187851B400388ED5 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
 		002276031878521100388ED5 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		002276041878521100388ED5 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
@@ -168,6 +209,16 @@
 		0022760A1878521100388ED5 /* RBZUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZUtils.m; sourceTree = "<group>"; };
 		002276121878526F00388ED5 /* RBZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZAppDelegate.h; sourceTree = "<group>"; };
 		002276131878526F00388ED5 /* RBZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZAppDelegate.m; sourceTree = "<group>"; };
+		0031D0BD18AB40B000DBAE59 /* RBZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZMainViewController.h; sourceTree = "<group>"; };
+		0031D0BE18AB40B000DBAE59 /* RBZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZMainViewController.m; sourceTree = "<group>"; };
+		00555ACC18B8D708009C839A /* RBZEventBadgeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventBadgeCell.h; sourceTree = "<group>"; };
+		00555ACD18B8D708009C839A /* RBZEventBadgeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventBadgeCell.m; sourceTree = "<group>"; };
+		00555ACF18B8F3F6009C839A /* RBZEventBadgeFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventBadgeFlowLayout.h; sourceTree = "<group>"; };
+		00555AD018B8F3F6009C839A /* RBZEventBadgeFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventBadgeFlowLayout.m; sourceTree = "<group>"; };
+		00965B1018B49CDA00550E59 /* WeeklyPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyPickerView.xib; sourceTree = "<group>"; };
+		00965B1218B4A0F800550E59 /* RBZWeeklyPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZWeeklyPickerView.h; sourceTree = "<group>"; };
+		00965B1318B4A0F800550E59 /* RBZWeeklyPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZWeeklyPickerView.m; sourceTree = "<group>"; };
+		00965B1518B4A94B00550E59 /* MonthlyPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyPickerView.xib; sourceTree = "<group>"; };
 		00C047AF18892729008FF857 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		00C047B018892729008FF857 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		00C047B118892729008FF857 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
@@ -179,6 +230,11 @@
 		00C047B918892D32008FF857 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		00C047BB18892DE6008FF857 /* GoogleAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsHelper.h; sourceTree = "<group>"; };
 		00C047BC18892DE6008FF857 /* GoogleAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsHelper.m; sourceTree = "<group>"; };
+		00CEBB7618B4FFF700D109D9 /* RBZMonthlyPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZMonthlyPickerView.h; sourceTree = "<group>"; };
+		00CEBB7718B4FFF700D109D9 /* RBZMonthlyPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZMonthlyPickerView.m; sourceTree = "<group>"; };
+		00CEBB7918B50F9C00D109D9 /* YearlyPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyPickerView.xib; sourceTree = "<group>"; };
+		00CEBB7B18B50FDE00D109D9 /* RBZYearlyPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZYearlyPickerView.h; sourceTree = "<group>"; };
+		00CEBB7C18B50FDE00D109D9 /* RBZYearlyPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZYearlyPickerView.m; sourceTree = "<group>"; };
 		8542B18BB8FC47FAB55020E9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D2FD29872A4F4543A19DA41D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0022723C18B0D92F0077078C /* AudioToolbox.framework in Frameworks */,
 				00C047BA18892D32008FF857 /* AdSupport.framework in Frameworks */,
 				00C047B818892751008FF857 /* libz.dylib in Frameworks */,
 				0022758618784E2600388ED5 /* StoreKit.framework in Frameworks */,
@@ -238,6 +295,7 @@
 		0022754D18784AE200388ED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0022723B18B0D92F0077078C /* AudioToolbox.framework */,
 				00C047B918892D32008FF857 /* AdSupport.framework */,
 				00C047B718892751008FF857 /* libz.dylib */,
 				0022758518784E2600388ED5 /* StoreKit.framework */,
@@ -303,16 +361,24 @@
 		0022758B18784E6800388ED5 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				001D6C0B187ADB0F0096A194 /* bubble.png */,
-				001D413218795186008D428B /* bg.png */,
-				0022758C18784E6800388ED5 /* add.png */,
-				0022758D18784E6800388ED5 /* add_highlighted.png */,
-				0022758E18784E6800388ED5 /* bell_black.png */,
-				0022758F18784E6800388ED5 /* calendar_black.png */,
-				0022759018784E6800388ED5 /* clock_black.png */,
-				0022759118784E6800388ED5 /* logo.png */,
-				0022759218784E6800388ED5 /* menu.png */,
-				0022759318784E6800388ED5 /* menu_highlighted.png */,
+				001F649918BB735800F596A0 /* Background@2x.png */,
+				001C8C1C18BA340F0065A370 /* Albums@2x.png */,
+				001DC24418BA1C30002AA0EA /* BackArrow@2x.png */,
+				001C8C2018BA39360065A370 /* Favorites@2x.png */,
+				001C8C2118BA39360065A370 /* Mail@2x.png */,
+				001C8C2218BA39360065A370 /* Thumb@2x.png */,
+				001F65B918B87C2C00CDA772 /* Backward@2x.png */,
+				001F65AF18B8759D00CDA772 /* Calendar@2x.png */,
+				001F649B18BBB81500F596A0 /* AlbumsSelected@2x.png */,
+				001F649C18BBB81500F596A0 /* SettingsSelected@2x.png */,
+				0021B10018BCFE4F00F38E2B /* UpArrow@2x.png */,
+				001F65B118B876F500CDA772 /* Clock@2x.png */,
+				001F65BB18B87DFB00CDA772 /* Forward@2x.png */,
+				001F65B718B87A5900CDA772 /* Info@2x.png */,
+				001DC24618BA2479002AA0EA /* Repeat@2x.png */,
+				001C8C1E18BA34600065A370 /* Settings@2x.png */,
+				0021B10218BCFF0D00F38E2B /* Close@2x.png */,
+				001F65B318B8789E00CDA772 /* Tones@2x.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -320,27 +386,18 @@
 		002275C31878507100388ED5 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				002275C41878507100388ED5 /* RBZAllEventViewController.h */,
-				002275C51878507100388ED5 /* RBZAllEventViewController.m */,
-				002275C61878507100388ED5 /* RBZDateValueViewController.h */,
-				002275C71878507100388ED5 /* RBZDateValueViewController.m */,
-				002275C81878507100388ED5 /* RBZDateViewController.h */,
-				002275C91878507100388ED5 /* RBZDateViewController.m */,
-				002275CA1878507100388ED5 /* RBZEventDateValueDelegate.h */,
-				002275CB1878507100388ED5 /* RBZEventListViewController.h */,
-				002275CC1878507100388ED5 /* RBZEventListViewController.m */,
-				002275CD1878507100388ED5 /* RBZEventViewController.h */,
-				002275CE1878507100388ED5 /* RBZEventViewController.m */,
-				002275CF1878507100388ED5 /* RBZReminderViewController.h */,
-				002275D01878507100388ED5 /* RBZReminderViewController.m */,
-				002275D11878507100388ED5 /* RBZSettingsTableViewController.h */,
-				002275D21878507100388ED5 /* RBZSettingsTableViewController.m */,
-				002275D31878507100388ED5 /* RBZSettingsViewController.h */,
-				002275D41878507100388ED5 /* RBZSettingsViewController.m */,
-				002275D51878507100388ED5 /* RBZTimeViewController.h */,
-				002275D61878507100388ED5 /* RBZTimeViewController.m */,
-				002275D71878507100388ED5 /* RBZTypeViewController.h */,
-				002275D81878507100388ED5 /* RBZTypeViewController.m */,
+				0022723318B09B560077078C /* RBZDatePickerViewController.h */,
+				0022723418B09B560077078C /* RBZDatePickerViewController.m */,
+				001F7BBB18ADB82E00115C16 /* RBZEventViewController.h */,
+				001F7BBC18ADB82E00115C16 /* RBZEventViewController.m */,
+				0031D0BD18AB40B000DBAE59 /* RBZMainViewController.h */,
+				0031D0BE18AB40B000DBAE59 /* RBZMainViewController.m */,
+				001F056C18BB1928005C8303 /* RBZSettingsViewController.h */,
+				001F056D18BB1928005C8303 /* RBZSettingsViewController.m */,
+				0022722B18AF854E0077078C /* RBZTimePickerViewController.h */,
+				0022722C18AF854E0077078C /* RBZTimePickerViewController.m */,
+				001F056F18BB2783005C8303 /* RBZArchiveViewController.h */,
+				001F057018BB2783005C8303 /* RBZArchiveViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -371,14 +428,36 @@
 		002275F01878516C00388ED5 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				002275F11878516C00388ED5 /* RBZAllEventListCell.h */,
-				002275F21878516C00388ED5 /* RBZAllEventListCell.m */,
-				002275F31878516C00388ED5 /* RBZDateTypeCell.h */,
-				002275F41878516C00388ED5 /* RBZDateTypeCell.m */,
-				002275F51878516C00388ED5 /* RBZEventListCell.h */,
+				0021B0FD18BCD4AC00F38E2B /* RBZArchiveListCell.h */,
+				0021B0FE18BCD4AC00F38E2B /* RBZArchiveListCell.m */,
+				0021B0F918BCD06300F38E2B /* RBZArchiveTableSectionHeaderView.h */,
+				0021B0FA18BCD06300F38E2B /* RBZArchiveTableSectionHeaderView.m */,
+				00186CB218BEF4E00067BC80 /* RBZArrowView.h */,
+				00186CB318BEF4E00067BC80 /* RBZArrowView.m */,
+				0022723818B0B0E50077078C /* RBZDatePickerView.h */,
+				0022723918B0B0E50077078C /* RBZDatePickerView.m */,
+				00555ACC18B8D708009C839A /* RBZEventBadgeCell.h */,
+				00555ACD18B8D708009C839A /* RBZEventBadgeCell.m */,
+				00555ACF18B8F3F6009C839A /* RBZEventBadgeFlowLayout.h */,
+				00555AD018B8F3F6009C839A /* RBZEventBadgeFlowLayout.m */,
+				0021B0FC18BCD46A00F38E2B /* RBZEventListCell.h */,
 				002275F61878516C00388ED5 /* RBZEventListCell.m */,
-				002275F71878516C00388ED5 /* RBZEventListHeader.h */,
-				002275F81878516C00388ED5 /* RBZEventListHeader.m */,
+				00186CBA18BF0A550067BC80 /* RBZEventTimeHintView.h */,
+				00186CBB18BF0A550067BC80 /* RBZEventTimeHintView.m */,
+				00CEBB7618B4FFF700D109D9 /* RBZMonthlyPickerView.h */,
+				00CEBB7718B4FFF700D109D9 /* RBZMonthlyPickerView.m */,
+				001D003B18B1C0D60006B9EA /* RBZQuickCalendarPickerView.h */,
+				001D003C18B1C0D60006B9EA /* RBZQuickCalendarPickerView.m */,
+				001D004018B21ED80006B9EA /* RBZQuickReminderPickerView.h */,
+				001D004118B21ED80006B9EA /* RBZQuickReminderPickerView.m */,
+				00965B1218B4A0F800550E59 /* RBZWeeklyPickerView.h */,
+				00965B1318B4A0F800550E59 /* RBZWeeklyPickerView.m */,
+				00CEBB7B18B50FDE00D109D9 /* RBZYearlyPickerView.h */,
+				00CEBB7C18B50FDE00D109D9 /* RBZYearlyPickerView.m */,
+				00186CBF18BF1E070067BC80 /* RBZEventDateHintView.h */,
+				00186CC018BF1E070067BC80 /* RBZEventDateHintView.m */,
+				00186CC418BF20440067BC80 /* RBZEventReminderHintView.h */,
+				00186CC518BF20440067BC80 /* RBZEventReminderHintView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -386,8 +465,17 @@
 		002275FD187851B400388ED5 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				002275FE187851B400388ED5 /* EventListHeader.xib */,
+				0022723618B0AF320077078C /* DatePickerView.xib */,
 				002275FF187851B400388ED5 /* main.storyboard */,
+				00965B1518B4A94B00550E59 /* MonthlyPickerView.xib */,
+				001D003918B1AD250006B9EA /* QuickCalendarPickerView.xib */,
+				001D003E18B204E20006B9EA /* QuickReminderPickerView.xib */,
+				00965B1018B49CDA00550E59 /* WeeklyPickerView.xib */,
+				00CEBB7918B50F9C00D109D9 /* YearlyPickerView.xib */,
+				0021B0F718BCCF2500F38E2B /* ArchiveTableSectionHeader.xib */,
+				00186CB518BF08C90067BC80 /* EventTimeHintView.xib */,
+				00186CBD18BF1D7C0067BC80 /* EventDateHintView.xib */,
+				00186CC218BF201B0067BC80 /* EventReminderHintView.xib */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -395,6 +483,8 @@
 		002276021878521100388ED5 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				00C047BB18892DE6008FF857 /* GoogleAnalyticsHelper.h */,
+				00C047BC18892DE6008FF857 /* GoogleAnalyticsHelper.m */,
 				002276031878521100388ED5 /* IAPHelper.h */,
 				002276041878521100388ED5 /* IAPHelper.m */,
 				002276051878521100388ED5 /* RBZDateReminder.h */,
@@ -405,8 +495,6 @@
 				002276081878521100388ED5 /* RBZIAPHelper.m */,
 				002276091878521100388ED5 /* RBZUtils.h */,
 				0022760A1878521100388ED5 /* RBZUtils.m */,
-				00C047BB18892DE6008FF857 /* GoogleAnalyticsHelper.h */,
-				00C047BC18892DE6008FF857 /* GoogleAnalyticsHelper.m */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -506,20 +594,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0022759418784E6800388ED5 /* add.png in Resources */,
-				0022759718784E6800388ED5 /* calendar_black.png in Resources */,
-				00227600187851B400388ED5 /* EventListHeader.xib in Resources */,
-				0022759A18784E6800388ED5 /* menu.png in Resources */,
-				001D413318795186008D428B /* bg.png in Resources */,
-				0022759818784E6800388ED5 /* clock_black.png in Resources */,
-				0022759618784E6800388ED5 /* bell_black.png in Resources */,
-				001D6C0C187ADB0F0096A194 /* bubble.png in Resources */,
-				0022759918784E6800388ED5 /* logo.png in Resources */,
+				00186CC318BF201B0067BC80 /* EventReminderHintView.xib in Resources */,
+				001C8C1D18BA340F0065A370 /* Albums@2x.png in Resources */,
+				001D003A18B1AD250006B9EA /* QuickCalendarPickerView.xib in Resources */,
+				001DC24718BA2479002AA0EA /* Repeat@2x.png in Resources */,
+				001C8C2418BA39360065A370 /* Mail@2x.png in Resources */,
+				001C8C1F18BA34600065A370 /* Settings@2x.png in Resources */,
+				00186CB618BF08C90067BC80 /* EventTimeHintView.xib in Resources */,
+				001C8C2518BA39360065A370 /* Thumb@2x.png in Resources */,
+				001F65B218B876F500CDA772 /* Clock@2x.png in Resources */,
+				001F65B818B87A5900CDA772 /* Info@2x.png in Resources */,
+				001DC24518BA1C30002AA0EA /* BackArrow@2x.png in Resources */,
+				0022723718B0AF320077078C /* DatePickerView.xib in Resources */,
+				0021B10318BCFF0D00F38E2B /* Close@2x.png in Resources */,
+				001F65B018B8759D00CDA772 /* Calendar@2x.png in Resources */,
+				001F649A18BB735800F596A0 /* Background@2x.png in Resources */,
+				00CEBB7A18B50F9C00D109D9 /* YearlyPickerView.xib in Resources */,
+				001D003F18B204E20006B9EA /* QuickReminderPickerView.xib in Resources */,
+				00965B1118B49CDA00550E59 /* WeeklyPickerView.xib in Resources */,
 				00227601187851B400388ED5 /* main.storyboard in Resources */,
-				0022759B18784E6800388ED5 /* menu_highlighted.png in Resources */,
+				001C8C2318BA39360065A370 /* Favorites@2x.png in Resources */,
 				0022755B18784AE200388ED5 /* InfoPlist.strings in Resources */,
+				00186CBE18BF1D7C0067BC80 /* EventDateHintView.xib in Resources */,
+				001F65BA18B87C2C00CDA772 /* Backward@2x.png in Resources */,
+				0021B0F818BCCF2500F38E2B /* ArchiveTableSectionHeader.xib in Resources */,
+				001F65BC18B87DFB00CDA772 /* Forward@2x.png in Resources */,
+				00965B1618B4A94B00550E59 /* MonthlyPickerView.xib in Resources */,
+				001F649D18BBB81500F596A0 /* AlbumsSelected@2x.png in Resources */,
 				0022756618784AE200388ED5 /* Images.xcassets in Resources */,
-				0022759518784E6800388ED5 /* add_highlighted.png in Resources */,
+				0021B10118BCFE4F00F38E2B /* UpArrow@2x.png in Resources */,
+				001F649E18BBB81500F596A0 /* SettingsSelected@2x.png in Resources */,
+				001F65B418B8789E00CDA772 /* Tones@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,37 +676,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001F7BBD18ADB82E00115C16 /* RBZEventViewController.m in Sources */,
 				002275EE187850EB00388ED5 /* EventReminder+Functions.m in Sources */,
 				002275FB1878516C00388ED5 /* RBZEventListCell.m in Sources */,
+				00CEBB7D18B50FDE00D109D9 /* RBZYearlyPickerView.m in Sources */,
+				0022723A18B0B0E50077078C /* RBZDatePickerView.m in Sources */,
 				002275B718784F1C00388ED5 /* Event.m in Sources */,
-				002275DC1878507100388ED5 /* RBZEventListViewController.m in Sources */,
-				002275F91878516C00388ED5 /* RBZAllEventListCell.m in Sources */,
+				001F056E18BB1928005C8303 /* RBZSettingsViewController.m in Sources */,
+				001F057118BB2783005C8303 /* RBZArchiveViewController.m in Sources */,
+				0022723518B09B560077078C /* RBZDatePickerViewController.m in Sources */,
+				0031D0BF18AB40B000DBAE59 /* RBZMainViewController.m in Sources */,
+				00965B1418B4A0F800550E59 /* RBZWeeklyPickerView.m in Sources */,
+				00555ACE18B8D708009C839A /* RBZEventBadgeCell.m in Sources */,
 				002276141878526F00388ED5 /* RBZAppDelegate.m in Sources */,
-				002275DD1878507100388ED5 /* RBZEventViewController.m in Sources */,
+				0021B0FF18BCD4AC00F38E2B /* RBZArchiveListCell.m in Sources */,
+				00555AD118B8F3F6009C839A /* RBZEventBadgeFlowLayout.m in Sources */,
 				002275C018784F1C00388ED5 /* EventReminder.m in Sources */,
 				0022760C1878521100388ED5 /* RBZDateReminder.m in Sources */,
-				002275FC1878516C00388ED5 /* RBZEventListHeader.m in Sources */,
-				002275D91878507100388ED5 /* RBZAllEventViewController.m in Sources */,
-				002275E01878507100388ED5 /* RBZSettingsViewController.m in Sources */,
+				001D003D18B1C0D60006B9EA /* RBZQuickCalendarPickerView.m in Sources */,
 				002275BD18784F1C00388ED5 /* EventTime.m in Sources */,
-				002275DF1878507100388ED5 /* RBZSettingsTableViewController.m in Sources */,
 				0022760D1878521100388ED5 /* RBZIAPHelper.m in Sources */,
-				002275E11878507100388ED5 /* RBZTimeViewController.m in Sources */,
-				002275E21878507100388ED5 /* RBZTypeViewController.m in Sources */,
+				0022722D18AF854E0077078C /* RBZTimePickerViewController.m in Sources */,
 				0022760B1878521100388ED5 /* IAPHelper.m in Sources */,
-				002275FA1878516C00388ED5 /* RBZDateTypeCell.m in Sources */,
+				0021B0FB18BCD06300F38E2B /* RBZArchiveTableSectionHeaderView.m in Sources */,
 				0022755D18784AE200388ED5 /* main.m in Sources */,
-				002275DA1878507100388ED5 /* RBZDateValueViewController.m in Sources */,
+				001D004218B21ED80006B9EA /* RBZQuickReminderPickerView.m in Sources */,
 				002275EC187850EB00388ED5 /* Event+Functions.m in Sources */,
+				00186CBC18BF0A550067BC80 /* RBZEventTimeHintView.m in Sources */,
+				00186CC618BF20440067BC80 /* RBZEventReminderHintView.m in Sources */,
+				00186CB418BEF4E00067BC80 /* RBZArrowView.m in Sources */,
 				0022756418784AE200388ED5 /* DateReminder.xcdatamodeld in Sources */,
 				002275BA18784F1C00388ED5 /* EventDate.m in Sources */,
 				0022760E1878521100388ED5 /* RBZUtils.m in Sources */,
 				002275ED187850EB00388ED5 /* EventDate+Functions.m in Sources */,
 				002275EF187850EB00388ED5 /* EventTime+Functions.m in Sources */,
 				00C047BD18892DE6008FF857 /* GoogleAnalyticsHelper.m in Sources */,
-				002275DE1878507100388ED5 /* RBZReminderViewController.m in Sources */,
 				0008E2D1187AA58C00AF1D56 /* RBZDateReminderTest.m in Sources */,
-				002275DB1878507100388ED5 /* RBZDateViewController.m in Sources */,
+				00186CC118BF1E070067BC80 /* RBZEventDateHintView.m in Sources */,
+				00CEBB7818B4FFF700D109D9 /* RBZMonthlyPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,7 +788,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -709,7 +821,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -726,10 +838,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DateReminder/DateReminder-Prefix.pch";
 				INFOPLIST_FILE = "DateReminder/DateReminder-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/robin/Dev/ios/DateReminder/DateReminder/Flurry,
 					/Users/robin/Dev/repositories/DateReminder/DateReminder/GA,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -749,10 +860,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DateReminder/DateReminder-Prefix.pch";
 				INFOPLIST_FILE = "DateReminder/DateReminder-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/robin/Dev/ios/DateReminder/DateReminder/Flurry,
 					/Users/robin/Dev/repositories/DateReminder/DateReminder/GA,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

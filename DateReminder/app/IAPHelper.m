@@ -9,7 +9,10 @@
 #import "IAPHelper.h"
 #import <StoreKit/StoreKit.h>
 
-NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
+NSString *const IAPHelperTransactionPurchasingNotification = @"iaphelper.transaction.purchasing";
+NSString *const IAPHelperTransactionPurchasedNotification = @"iaphelper.transaction.purchased";
+NSString *const IAPHelperTransactionFailedNotification = @"iaphelper.transaction.failed";
+NSString *const IAPHelperTransactionRestoredNotification = @"iaphelper.transaction.restored";
 
 @interface IAPHelper () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 
@@ -58,12 +61,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 }
 
 - (void)buyProduct:(SKProduct *)product {
-    
     NSLog(@"Buying %@...", product.productIdentifier);
     
     SKPayment * payment = [SKPayment paymentWithProduct:product];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
-    
 }
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
@@ -85,8 +86,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [_purchasedProductIdentifiers addObject:productIdentifier];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperTransactionPurchasedNotification object:productIdentifier userInfo:nil];
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
@@ -96,8 +96,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     {
         NSLog(@"Transaction error: %@", transaction.error.localizedDescription);
     }
-    
-    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperTransactionFailedNotification object:transaction.payment.productIdentifier userInfo:nil];
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 - (void)restoreCompletedTransactions {
