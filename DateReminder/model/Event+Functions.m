@@ -10,14 +10,16 @@
 #import "EventTime+Functions.h"
 #import "EventDate+Functions.h"
 #import "EventReminder+Functions.h"
+#import "RBZDateReminder.h"
+#import "RBZUtils.h"
 
 @implementation Event (Functions)
 
 - (BOOL)isOnDate:(NSDate *)date
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSInteger units = NSMinuteCalendarUnit | NSHourCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSWeekOfYearCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
-    NSDateComponents *comps = [gregorian components:units fromDate:date];
+    NSDateComponents *comps = [calendar components:units fromDate:date];
     NSInteger year = [comps year];
     NSInteger month = [comps month];
     NSInteger day = [comps day];
@@ -100,22 +102,22 @@
 
 + (NSDate *)nextDailyDate:(NSNumber *)minute hour:(NSNumber *)hour
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSInteger units = NSMinuteCalendarUnit | NSHourCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
     NSDate *now = [NSDate date];
-    NSDateComponents *nowComps = [gregorian components:units fromDate:now];
-    now = [gregorian dateFromComponents:nowComps];
+    NSDateComponents *nowComps = [calendar components:units fromDate:now];
+    now = [calendar dateFromComponents:nowComps];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     comps.minute = [minute integerValue];
     comps.hour = [hour integerValue];
     comps.day = nowComps.day;
     comps.month = nowComps.month;
     comps.year = nowComps.year;
-    NSDate *d = [gregorian dateFromComponents:comps];
+    NSDate *d = [calendar dateFromComponents:comps];
     if ([d timeIntervalSinceDate:now] <= 0) {
         NSDateComponents *add = [[NSDateComponents alloc] init];
         add.day = 1;
-        return [gregorian dateByAddingComponents:add toDate:d options:0];
+        return [calendar dateByAddingComponents:add toDate:d options:0];
     } else {
         return d;
     }
@@ -123,22 +125,22 @@
 
 + (NSDate *)nextWeeklyDate:(NSNumber *)minute hour:(NSNumber *)hour weekday:(NSNumber *)weekday
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSInteger units = NSMinuteCalendarUnit | NSHourCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSWeekCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
     NSDate *now = [NSDate date];
-    NSDateComponents *nowComps = [gregorian components:units fromDate:now];
-    now = [gregorian dateFromComponents:nowComps];
+    NSDateComponents *nowComps = [calendar components:units fromDate:now];
+    now = [calendar dateFromComponents:nowComps];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     comps.minute = [minute integerValue];
     comps.hour = [hour integerValue];
     comps.weekday = [weekday integerValue];
     comps.week = nowComps.week;
     comps.year = nowComps.year;
-    NSDate *d = [gregorian dateFromComponents:comps];
+    NSDate *d = [calendar dateFromComponents:comps];
     if ([d timeIntervalSinceDate:now] <= 0) {
         NSDateComponents *add = [[NSDateComponents alloc] init];
         add.week = 1;
-        return [gregorian dateByAddingComponents:add toDate:d options:0];
+        return [calendar dateByAddingComponents:add toDate:d options:0];
     } else {
         return d;
     }
@@ -146,10 +148,10 @@
 
 + (NSDate *)nextMonthlyDate:(NSNumber *)minute hour:(NSNumber *)hour day:(NSNumber *)day
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSInteger units = NSMinuteCalendarUnit | NSHourCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
     NSDate *now = [NSDate date];
-    NSDateComponents *nowComps = [gregorian components:units fromDate:now];
+    NSDateComponents *nowComps = [calendar components:units fromDate:now];
     
     BOOL passed = [EventTime isTimePassed:minute
                                 eventHour:hour
@@ -161,66 +163,66 @@
     NSInteger sd = [day integerValue];
     if (nowComps.day < sd) {
         if (sd == 31) {
-            nowComps.day = [Event lastDayOfMonth:nowComps.month year:nowComps.year];
-            return [gregorian dateFromComponents:nowComps];
+            nowComps.day = [RBZUtils lastDayOfMonth:nowComps.month year:nowComps.year];
+            return [calendar dateFromComponents:nowComps];
         } else if (sd == 30 && nowComps.month == 2) {
             nowComps.day = sd;
             nowComps.month = 3;
-            return [gregorian dateFromComponents:nowComps];
+            return [calendar dateFromComponents:nowComps];
         } else if (sd == 29 && nowComps.month == 2) {
-            if ([Event isLeapYear:nowComps.year]) {
+            if ([RBZUtils isLeapYear:nowComps.year]) {
                 nowComps.day = sd;
-                return [gregorian dateFromComponents:nowComps];
+                return [calendar dateFromComponents:nowComps];
             } else {
                 nowComps.day = sd;
                 nowComps.month = 3;
-                return [gregorian dateFromComponents:nowComps];
+                return [calendar dateFromComponents:nowComps];
             }
         } else {
             nowComps.day = sd;
-            return [gregorian dateFromComponents:nowComps];
+            return [calendar dateFromComponents:nowComps];
         }
     } else if (nowComps.day == sd && !passed) {
-        return [gregorian dateFromComponents:nowComps];
+        return [calendar dateFromComponents:nowComps];
     } else {
         if (sd == 31) {
             if (nowComps.month == 12) {
                 nowComps.month = 1;
                 nowComps.year++;
-                nowComps.day = [Event lastDayOfMonth:nowComps.month year:nowComps.year];
+                nowComps.day = [RBZUtils lastDayOfMonth:nowComps.month year:nowComps.year];
             } else {
                 nowComps.month++;
-                nowComps.day = [Event lastDayOfMonth:nowComps.month year:nowComps.year];
+                nowComps.day = [RBZUtils lastDayOfMonth:nowComps.month year:nowComps.year];
             }
-            return [gregorian dateFromComponents:nowComps];
+            return [calendar dateFromComponents:nowComps];
         } else if (sd == 30 && nowComps.month == 1) {
             nowComps.day = sd;
             nowComps.month = 3;
-            return [gregorian dateFromComponents:nowComps];
+            return [calendar dateFromComponents:nowComps];
         } else if (sd == 29 && nowComps.month == 1) {
             nowComps.day = sd;
-            if ([Event isLeapYear:nowComps.year])
+            if ([RBZUtils isLeapYear:nowComps.year])
                 nowComps.month = 2;
             else
                 nowComps.month = 3;
-            return [gregorian dateFromComponents:nowComps];
+            return [calendar dateFromComponents:nowComps];
         } else {
             nowComps.day = sd;
-            NSDate *d = [gregorian dateFromComponents:nowComps];
+            NSDate *d = [calendar dateFromComponents:nowComps];
             NSDateComponents *add = [[NSDateComponents alloc] init];
             add.month = 1;
-            return [gregorian dateByAddingComponents:add toDate:d options:0];
+            return [calendar dateByAddingComponents:add toDate:d options:0];
         }
     }
 }
 
 + (NSDate *)nextYearlyDate:(NSNumber *)minute hour:(NSNumber *)hour day:(NSNumber *)day month:(NSNumber *)month
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSInteger units = NSMinuteCalendarUnit | NSHourCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
     NSDate *now = [NSDate date];
-    NSDateComponents *nowComps = [gregorian components:units fromDate:now];
-    now = [gregorian dateFromComponents:nowComps];
+    NSDateComponents *nowComps = [calendar components:units fromDate:now];
+    now = [calendar dateFromComponents:nowComps];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     
     NSInteger sd = [day integerValue];
@@ -231,22 +233,22 @@
     comps.day = sd;
     comps.month = sm;
     if (sd == 29 && sm == 2) {
-        if ([Event isLeapYear:nowComps.year])
+        if ([RBZUtils isLeapYear:nowComps.year])
             comps.year = nowComps.year;
         else
-            comps.year = [Event nextLeapYear:nowComps.year];
+            comps.year = [RBZUtils nextLeapYear:nowComps.year];
     } else {
         comps.year = nowComps.year;
     }
-    NSDate *d = [gregorian dateFromComponents:comps];
+    NSDate *d = [calendar dateFromComponents:comps];
     if ([d timeIntervalSinceDate:now] <= 0) {
         if (sd == 29 && sm == 2) {
-            comps.year = [Event nextLeapYear:nowComps.year];
-            return [gregorian dateFromComponents:comps];
+            comps.year = [RBZUtils nextLeapYear:nowComps.year];
+            return [calendar dateFromComponents:comps];
         } else {
             NSDateComponents *add = [[NSDateComponents alloc] init];
             add.year = 1;
-            return [gregorian dateByAddingComponents:add toDate:d options:0];
+            return [calendar dateByAddingComponents:add toDate:d options:0];
         }
     } else {
         return d;
@@ -255,120 +257,14 @@
 
 + (NSDate *)nextOnceDate:(NSNumber *)minute hour:(NSNumber *)hour day:(NSNumber *)day month:(NSNumber *)month year:(NSNumber *)year
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[RBZDateReminder instance] defaultCalendar];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     comps.year = [year integerValue];
     comps.month = [month integerValue];
     comps.day = [day integerValue];
     comps.hour = [hour integerValue];
     comps.minute = [minute integerValue];
-    return [gregorian dateFromComponents:comps];
-}
-
-+ (BOOL)has31th:(NSInteger)month
-{
-    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
-        return YES;
-    return NO;
-}
-
-+ (NSInteger)lastDayOfMonth:(NSInteger)month year:(NSInteger)year
-{
-    switch (month) {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            return 31;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            return 30;
-        case 2:
-            if ([self isLeapYear:year])
-                return 29;
-            else
-                return 28;
-    }
-    return 31;
-    
-}
-
-+ (NSInteger)lastDayOfNextMonth:(NSInteger)month year:(NSInteger)year
-{
-    switch (month) {
-        case 1:
-            if ([self isLeapYear:year])
-                return 29;
-            else
-                return 28;
-        case 2:
-        case 4:
-        case 6:
-        case 7:
-        case 9:
-        case 11:
-        case 12:
-            return 31;
-        case 3:
-        case 5:
-        case 8:
-        case 10:
-            return 30;
-    }
-    return 31;
-}
-
-+ (NSInteger)next31th:(NSInteger)month
-{
-    switch (month) {
-        case 1:
-        case 2:
-            return 3;
-        case 3:
-        case 4:
-            return 5;
-        case 5:
-        case 6:
-            return 7;
-        case 7:
-            return 8;
-        case 8:
-        case 9:
-            return 10;
-        case 10:
-        case 11:
-            return 12;
-        case 12:
-            return 1;
-    }
-    return 1;
-}
-
-+ (BOOL)isLeapYear:(NSInteger)year
-{
-    if (year % 400 == 0) {
-        return YES;
-    } else if (year % 100 == 0) {
-        return NO;
-    } else if (year % 4 == 0) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
-+ (NSInteger)nextLeapYear:(NSInteger)year
-{
-    NSInteger next = year + (4 - year % 4);
-    if (![self isLeapYear:next]) {
-        next += 4;
-    }
-    return next;
+    return [calendar dateFromComponents:comps];
 }
 
 @end
