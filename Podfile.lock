@@ -1,6 +1,8 @@
 PODS:
   - iRate (1.9)
-  - MagicalRecord (2.2)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.2)
   - MMDrawerController (0.5.1):
     - MMDrawerController/Core
     - MMDrawerController/MMDrawerBarButtonItem
@@ -13,18 +15,18 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.1):
     - MMDrawerController/Core
-  - UITableView-NXEmptyView (0.1.4)
+  - RZSquaresLoading (1.0)
 
 DEPENDENCIES:
   - iRate
   - MagicalRecord (~> 2.2)
   - MMDrawerController
-  - UITableView-NXEmptyView
+  - RZSquaresLoading
 
 SPEC CHECKSUMS:
   iRate: c078290b7477ff01a1890aed221306c73ddaa247
-  MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
+  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
   MMDrawerController: 3e22aec684dbee5307ff9d1e76523003a3303a2d
-  UITableView-NXEmptyView: 034e5162ce7b8e3584d720d0d925c27ea7711220
+  RZSquaresLoading: 18758db4c4b607878bf9d37c84c6501f4211ab00
 
 COCOAPODS: 0.29.0
