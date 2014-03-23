@@ -7,6 +7,7 @@
 //
 
 #import "GoogleAnalyticsHelper.h"
+#import <sys/utsname.h>
 
 @implementation GoogleAnalyticsHelper
 
@@ -19,6 +20,7 @@ static NSString *const GA_ACTION_EVENT_YEARLY   = @"Yearly";
 + (void)trackScreen:(NSString *)screenName
 {
     id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:[GAIFields customDimensionForIndex:1] value:[self getDeviceModel]];
     [tracker set:kGAIScreenName value:screenName];
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
@@ -26,6 +28,7 @@ static NSString *const GA_ACTION_EVENT_YEARLY   = @"Yearly";
 + (void)trackEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value
 {
     id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:[GAIFields customDimensionForIndex:1] value:[self getDeviceModel]];
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
                                                          action:action
                                                           label:label
@@ -67,6 +70,12 @@ static NSString *const GA_ACTION_EVENT_YEARLY   = @"Yearly";
                      [event.time.minute integerValue],
                      [event.reminder.hasReminder boolValue] ? [event.reminder.minutesBefore integerValue] : 0];
     return str;
+}
+
++ (NSString *)getDeviceModel {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
 }
 
 @end
