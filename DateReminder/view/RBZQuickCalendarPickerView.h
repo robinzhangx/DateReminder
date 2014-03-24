@@ -46,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pickOtherButton;
 @property (weak, nonatomic) IBOutlet UIButton *dailyButton;
 @property (weak, nonatomic) IBOutlet UIView *separatorLine;
+@property (weak, nonatomic) IBOutlet UILabel *sundayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *saturdayLabel;
 
 @end
 

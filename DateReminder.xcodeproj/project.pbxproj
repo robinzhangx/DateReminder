@@ -15,6 +15,9 @@
 		00186CC118BF1E070067BC80 /* RBZEventDateHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00186CC018BF1E070067BC80 /* RBZEventDateHintView.m */; };
 		00186CC318BF201B0067BC80 /* EventReminderHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00186CC218BF201B0067BC80 /* EventReminderHintView.xib */; };
 		00186CC618BF20440067BC80 /* RBZEventReminderHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00186CC518BF20440067BC80 /* RBZEventReminderHintView.m */; };
+		001B93B318DD36B10060914D /* DRTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B93B218DD36B10060914D /* DRTheme.m */; };
+		001B93B518DD96BE0060914D /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001B93B418DD96BE0060914D /* Checkmark@2x.png */; };
+		001B93B718DD9C920060914D /* Circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001B93B618DD9C920060914D /* Circle@2x.png */; };
 		001C8C1D18BA340F0065A370 /* Albums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C1C18BA340F0065A370 /* Albums@2x.png */; };
 		001C8C1F18BA34600065A370 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C1E18BA34600065A370 /* Settings@2x.png */; };
 		001C8C2318BA39360065A370 /* Favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C8C2018BA39360065A370 /* Favorites@2x.png */; };
@@ -119,6 +122,10 @@
 		00186CC218BF201B0067BC80 /* EventReminderHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventReminderHintView.xib; sourceTree = "<group>"; };
 		00186CC418BF20440067BC80 /* RBZEventReminderHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBZEventReminderHintView.h; sourceTree = "<group>"; };
 		00186CC518BF20440067BC80 /* RBZEventReminderHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBZEventReminderHintView.m; sourceTree = "<group>"; };
+		001B93B118DD36B10060914D /* DRTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTheme.h; sourceTree = "<group>"; };
+		001B93B218DD36B10060914D /* DRTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTheme.m; sourceTree = "<group>"; };
+		001B93B418DD96BE0060914D /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
+		001B93B618DD9C920060914D /* Circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Circle@2x.png"; sourceTree = "<group>"; };
 		001C8C1C18BA340F0065A370 /* Albums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Albums@2x.png"; sourceTree = "<group>"; };
 		001C8C1E18BA34600065A370 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
 		001C8C2018BA39360065A370 /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorites@2x.png"; sourceTree = "<group>"; };
@@ -362,8 +369,10 @@
 			isa = PBXGroup;
 			children = (
 				001F649918BB735800F596A0 /* Background@2x.png */,
+				001B93B418DD96BE0060914D /* Checkmark@2x.png */,
 				001C8C1C18BA340F0065A370 /* Albums@2x.png */,
 				001DC24418BA1C30002AA0EA /* BackArrow@2x.png */,
+				001B93B618DD9C920060914D /* Circle@2x.png */,
 				001C8C2018BA39360065A370 /* Favorites@2x.png */,
 				001C8C2118BA39360065A370 /* Mail@2x.png */,
 				001C8C2218BA39360065A370 /* Thumb@2x.png */,
@@ -495,6 +504,8 @@
 				002276081878521100388ED5 /* RBZIAPHelper.m */,
 				002276091878521100388ED5 /* RBZUtils.h */,
 				0022760A1878521100388ED5 /* RBZUtils.m */,
+				001B93B118DD36B10060914D /* DRTheme.h */,
+				001B93B218DD36B10060914D /* DRTheme.m */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -600,6 +611,7 @@
 				001DC24718BA2479002AA0EA /* Repeat@2x.png in Resources */,
 				001C8C2418BA39360065A370 /* Mail@2x.png in Resources */,
 				001C8C1F18BA34600065A370 /* Settings@2x.png in Resources */,
+				001B93B718DD9C920060914D /* Circle@2x.png in Resources */,
 				00186CB618BF08C90067BC80 /* EventTimeHintView.xib in Resources */,
 				001C8C2518BA39360065A370 /* Thumb@2x.png in Resources */,
 				001F65B218B876F500CDA772 /* Clock@2x.png in Resources */,
@@ -616,6 +628,7 @@
 				001C8C2318BA39360065A370 /* Favorites@2x.png in Resources */,
 				0022755B18784AE200388ED5 /* InfoPlist.strings in Resources */,
 				00186CBE18BF1D7C0067BC80 /* EventDateHintView.xib in Resources */,
+				001B93B518DD96BE0060914D /* Checkmark@2x.png in Resources */,
 				001F65BA18B87C2C00CDA772 /* Backward@2x.png in Resources */,
 				0021B0F818BCCF2500F38E2B /* ArchiveTableSectionHeader.xib in Resources */,
 				001F65BC18B87DFB00CDA772 /* Forward@2x.png in Resources */,
@@ -703,6 +716,7 @@
 				001D004218B21ED80006B9EA /* RBZQuickReminderPickerView.m in Sources */,
 				002275EC187850EB00388ED5 /* Event+Functions.m in Sources */,
 				00186CBC18BF0A550067BC80 /* RBZEventTimeHintView.m in Sources */,
+				001B93B318DD36B10060914D /* DRTheme.m in Sources */,
 				00186CC618BF20440067BC80 /* RBZEventReminderHintView.m in Sources */,
 				00186CB418BEF4E00067BC80 /* RBZArrowView.m in Sources */,
 				0022756418784AE200388ED5 /* DateReminder.xcdatamodeld in Sources */,

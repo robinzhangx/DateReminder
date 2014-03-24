@@ -37,6 +37,7 @@ static NSString *const GA_ACTION_BUY_COFFEE                 = @"Buy Coffee";
 static NSString *const GA_ACTION_RATE_APP                   = @"Rate App";
 static NSString *const GA_ACTION_DELETE_FROM_ARCHIVE        = @"Delete From Archive";
 static NSString *const GA_ACTION_CREATE_INVALIDATE          = @"Create Event Invalidate";
+static NSString *const GA_ACTION_CHANGE_THEME_COLOR         = @"Change Theme Color";
 
 static NSString *const GA_ACTION_READY_FOR_PURCHASE         = @"Ready For Purchase";
 static NSString *const GA_ACTION_STORE_NOT_AVAILABLE        = @"Store Not Available";

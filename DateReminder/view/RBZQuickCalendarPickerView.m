@@ -10,7 +10,7 @@
 #import "RBZDateReminder.h"
 
 @implementation RBZQuickCalendarPickerView {
-    UIColor *_mainColor;
+    DRTheme *_theme;
     NSCalendar *_calendar;
     NSDate *_currentDate;
     NSInteger _startDateDelta;
@@ -46,11 +46,15 @@
     [self.pickOtherButton addTarget:self action:@selector(onButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.dailyButton.tag = -2;
     [self.dailyButton addTarget:self action:@selector(onButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.dailyButton setAttributedTitle:[self getDailyString] forState:UIControlStateNormal];
+    
+    self.saturdayLabel.textColor = _theme.mainColor;
+    self.sundayLabel.textColor = _theme.mainColor;
     
     CALayer *layer = [CALayer layer];
     layer.frame = CGRectMake(0.0, 0.0, 30.0, 30.0);
     layer.cornerRadius = 15.0;
-    layer.backgroundColor = _mainColor.CGColor;
+    layer.backgroundColor = _theme.mainColor.CGColor;
     [self.indicatorView.layer addSublayer:layer];
 }
 
@@ -70,7 +74,7 @@
 
 - (void)commonSetup
 {
-    _mainColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:1.0];
+    _theme = [RBZDateReminder instance].theme;
     _calendar = [[RBZDateReminder instance] defaultCalendar];
     _currentDate = [NSDate date];
     NSDateComponents *comps = [_calendar components:NSWeekdayCalendarUnit fromDate:_currentDate];
@@ -100,6 +104,21 @@
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _today = button;
     }
+}
+
+static NSString *_buttonLabelFont = @"AvenirNextCondensed-Regular";
+static float _buttonLabelFontSize = 20.0;
+
+- (NSAttributedString *)getDailyString
+{
+    UIFont *font = [UIFont fontWithName:_buttonLabelFont size:_buttonLabelFontSize];
+    NSDictionary *attrsDic = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSString *str = @"Daily";
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:attrsDic];
+    int len = [str length];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:_theme.mainColor range:NSMakeRange(0, 1)];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(1, len - 1)];
+    return attrStr;
 }
 
 - (UIButton *)getButton:(NSInteger)index

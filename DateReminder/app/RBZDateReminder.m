@@ -9,12 +9,15 @@
 #import "RBZDateReminder.h"
 #import "GoogleAnalyticsHelper.h"
 
-@implementation RBZDateReminder
+@implementation RBZDateReminder {
+    int _themeColorId;
+}
 
 static RBZDateReminder *instance;
-
+NSString *const DRThemeColorChangedNotification = @"com.robiz.datereminder.themecolorchanged";
 static NSString *const DateReminder_defaultEventsKey = @"dr_defaultEvents";
 static NSString *const DateReminder_localNotificationCleared = @"dr_localNotificationCleared";
+static NSString *const DateReminder_themeColorId = @"dr_theme";
 
 + (RBZDateReminder *)instance
 {
@@ -48,6 +51,9 @@ static NSString *const DateReminder_localNotificationCleared = @"dr_localNotific
             [self setupDefaultEvents];
         }
         
+        _themeColorId = [defaults integerForKey:DateReminder_themeColorId];
+        self.theme = [self getTheme:_themeColorId];
+        
         //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
         //[[UIApplication sharedApplication] cancelAllLocalNotifications];
         //[Event MR_truncateAll];
@@ -66,6 +72,43 @@ static NSString *const DateReminder_localNotificationCleared = @"dr_localNotific
     formatter.calendar = self.defaultCalendar;
     formatter.locale = self.defaultLocale;
     return formatter;
+}
+
+- (DRTheme *)getTheme:(NSInteger)index
+{
+    switch (index) {
+        case kThemeColorGreen: return [[DRTheme alloc] initWithRed:91.0/255.0 green:165.0/255.0 blue:37.0/255.0];
+        case kThemeColorBlue: return [[DRTheme alloc] initWithRed:0.0/255.0 green:124.0/255.0 blue:195.0/255.0];
+        case kThemeColorPurple: return [[DRTheme alloc] initWithRed:234.0/255.0 green:76.0/255.0 blue:137.0/255.0];
+        default: return [[DRTheme alloc] initWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0];
+    }
+}
+
+- (void)setThemeColor:(int)index
+{
+    _themeColorId = index;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:_themeColorId forKey:DateReminder_themeColorId];
+    [defaults synchronize];
+    self.theme = [self getTheme:_themeColorId];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DRThemeColorChangedNotification
+                                                        object:nil
+                                                      userInfo:nil];
+}
+
+- (NSInteger)getThemeColor
+{
+    return _themeColorId;
+}
+
++ (NSString *)getThemeColorName:(int)index
+{
+    switch (index) {
+        case kThemeColorGreen: return @"Green";
+        case kThemeColorBlue: return @"Blue";
+        case kThemeColorPurple: return @"Purple";
+        default: return @"Orange";
+    }
 }
 
 - (void)addEvent:(Event *)ev

@@ -11,5 +11,6 @@
 @interface RBZArchiveListCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIView *indicatorView;
 
 @end

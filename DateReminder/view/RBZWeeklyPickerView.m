@@ -11,7 +11,7 @@
 
 @implementation RBZWeeklyPickerView {
     UIColor *_mainColor;
-    NSMutableArray *_titleStrings;
+    NSArray *_titleStrings;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -44,7 +44,6 @@
 
 - (void)commonSetup
 {
-    _mainColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:1.0];
     [self populateTitleStrings];
 }
 
@@ -56,23 +55,10 @@
     }
 }
 
-static NSString *_pickerLabelFont = @"AvenirNextCondensed-Regular";
-static float _pickerLabelFontSize = 22.0;
-
 - (void)populateTitleStrings
 {
-    _titleStrings = [[NSMutableArray alloc] init];
     NSDateFormatter *formatter = [[RBZDateReminder instance] getLocalizedDateFormatter];
-    NSArray *symbols = formatter.weekdaySymbols;
-    UIFont *font = [UIFont fontWithName:_pickerLabelFont size:_pickerLabelFontSize];
-    NSDictionary *attrsDic = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
-    for (NSString *str in symbols) {
-        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:attrsDic];
-        int len = [str length];
-        [attrStr addAttribute:NSForegroundColorAttributeName value:_mainColor range:NSMakeRange(0, 1)];
-        [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(1, len - 1)];
-        [_titleStrings addObject:attrStr];
-    }
+    _titleStrings = formatter.weekdaySymbols;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -90,10 +76,12 @@ static float _pickerLabelFontSize = 22.0;
     if (!view) {
         UILabel *label= [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 140.0, 40.0)];
         //[label setBackgroundColor:[UIColor blackColor]];
+        [label setFont:[UIFont fontWithName:@"AvenirNextCondensed-Regular" size:22.0]];
+        [label setTextColor:[UIColor whiteColor]];
         [label setTextAlignment:NSTextAlignmentCenter];
         view = label;
     }
-    [(UILabel *)view setAttributedText:_titleStrings[row]];
+    [(UILabel *)view setText:_titleStrings[row]];
     return view;
 }
 

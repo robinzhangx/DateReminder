@@ -23,8 +23,7 @@
 @end
 
 @implementation RBZEventViewController {
-    UIColor *_mainColor;
-    UIColor *_highlightColor;
+    DRTheme *_theme;
     UIColor *_invalidateColor;
     UIColor *_buttonInvalidateColor;
     UIColor *_titleTextColor;
@@ -169,13 +168,14 @@ static NSString *_titleHint = @"Notes...";
 
 - (void)commonSetup
 {
-    _mainColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:1.0];
-    _highlightColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:.1];
+    _theme = [RBZDateReminder instance].theme;
     _invalidateColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:.3];
     _buttonInvalidateColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
     _titleTextColor = [UIColor blackColor];
     _titleHintColor = [UIColor lightGrayColor];
     _titleBackgroundColor = [UIColor clearColor];
+    self.createButton.backgroundColor = _theme.mainColor;
+    
     
     float cornerRadius = 3.0;
     self.backButton.layer.cornerRadius = cornerRadius;
@@ -211,15 +211,19 @@ static NSString *_titleHint = @"Notes...";
     }
     self.badgeCollectionView.dataSource = self;
     self.badgeCollectionView.delegate = self;
-    self.badgeCollectionView.collectionViewLayout = [[RBZEventBadgeFlowLayout alloc] init];
+    RBZEventBadgeFlowLayout *layout = [[RBZEventBadgeFlowLayout alloc] init];
+    [layout setMinimumInteritemSpacing:8.0];
+    [layout setMinimumLineSpacing:8.0];
+    self.badgeCollectionView.collectionViewLayout = layout;
     [self.badgeCollectionView reloadData];
 }
 
 - (void)setupCountdown
 {
     RZSquaresLoading *sl = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
-    sl.color = _mainColor;
+    sl.color = _theme.mainColor;
     [self.loadingView addSubview:sl];
+    self.countdownLabel.textColor = _theme.mainColor;
     self.countdownLabel.alpha = 0.0;
     self.loadingView.alpha = 0.0;
     [self updateCountdownLabel];
@@ -684,7 +688,7 @@ static NSString *_titleHint = @"Notes...";
     }
     [UIView animateWithDuration:0.2
                      animations:^{
-                         textView.backgroundColor = _highlightColor;
+                         textView.backgroundColor = _theme.focusColor;
                      }];
     return YES;
 }

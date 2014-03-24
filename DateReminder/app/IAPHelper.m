@@ -149,6 +149,7 @@ NSString *const IAPHelperTransactionRestoredNotification = @"iaphelper.transacti
                 break;
             case SKPaymentTransactionStateRestored:
                 [self restoreTransaction:transaction];
+                break;
             default:
                 break;
         }

@@ -7,6 +7,7 @@
 //
 
 #import "RBZArchiveTableSectionHeaderView.h"
+#import "RBZDateReminder.h"
 
 @implementation RBZArchiveTableSectionHeaderView
 
@@ -23,6 +24,7 @@
 {
     [super awakeFromNib];
     self.countLabel.layer.cornerRadius = 3.0;
+    self.indicatorView.backgroundColor = [RBZDateReminder instance].theme.mainColor;
 }
 
 /*

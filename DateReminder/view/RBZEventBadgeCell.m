@@ -7,6 +7,7 @@
 //
 
 #import "RBZEventBadgeCell.h"
+#import "RBZDateReminder.h"
 
 @implementation RBZEventBadgeCell
 
@@ -23,6 +24,7 @@
 {
     [super awakeFromNib];
     self.containerView.layer.cornerRadius = 3.0;
+    self.containerView.backgroundColor = [RBZDateReminder instance].theme.mainColor;
 }
 
 @end

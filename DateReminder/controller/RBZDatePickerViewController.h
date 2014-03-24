@@ -31,5 +31,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *pickerTypeHighlightView;
 @property (weak, nonatomic) IBOutlet UIView *pickerContainerView;
+@property (weak, nonatomic) IBOutlet UIView *pickerTypeSeparatorView;
 
 @end

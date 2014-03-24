@@ -49,7 +49,6 @@
 - (void)commonSetup
 {
     _calendar = [[RBZDateReminder instance] defaultCalendar];
-    _mainColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:1.0];
     NSDate *now = [NSDate date];
     NSDateComponents *comps = [_calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
     _currentDay = comps.day;

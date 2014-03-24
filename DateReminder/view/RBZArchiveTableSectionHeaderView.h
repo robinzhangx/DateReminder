@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIControl *contentControlView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UIView *indicatorView;
 
 @end

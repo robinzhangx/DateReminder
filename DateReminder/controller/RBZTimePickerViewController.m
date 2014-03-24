@@ -17,7 +17,7 @@
 @end
 
 @implementation RBZTimePickerViewController {
-    UIColor *_mainColor;
+    DRTheme *_theme;
     NSCalendar *_calendar;
 }
 
@@ -97,8 +97,14 @@ static NSString *const GA_VC_TIME_PICKER_VIEW = @"Time Picker View";
 
 - (void)commonSetup
 {
-    _mainColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:1.0];
+    _theme = [RBZDateReminder instance].theme;
     _calendar = [[RBZDateReminder instance] defaultCalendar];
+    self.setButton.backgroundColor = _theme.mainColor;
+    self.timeLabel.textColor = _theme.mainColor;
+    self.hourHighlight.backgroundColor = _theme.selectedColor;
+    self.minuteHighlight.backgroundColor = _theme.selectedColor;
+    self.m05Highlight.backgroundColor = _theme.selectedColor;
+    self.ampmHighlight.backgroundColor = _theme.selectedColor;
     self.cancelButton.layer.cornerRadius = 3.0;
     self.setButton.layer.cornerRadius = 3.0;
 }
@@ -175,6 +181,7 @@ static NSString *const GA_VC_TIME_PICKER_VIEW = @"Time Picker View";
     for (int i = 1; i <= 12; i++) {
         UIButton *button = [self getHourButton:i];
         button.tag = i;
+        [button setAttributedTitle:[self getHourString:i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(hourButtonTapped:) forControlEvents:UIControlEventTouchDown];
     }
 }
@@ -184,15 +191,19 @@ static NSString *const GA_VC_TIME_PICKER_VIEW = @"Time Picker View";
     for (int i = 0; i <= 50; i = i + 10) {
         UIButton *button = [self getMinute10Button:i];
         button.tag = i;
+        [button setAttributedTitle:[self getMinuteString:i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(minuteButtonTapped:) forControlEvents:UIControlEventTouchDown];
     }
     self.m05Button.tag = 5;
+    [self.m05Button setAttributedTitle:[self getMinuteString:5] forState:UIControlStateNormal];
     [self.m05Button addTarget:self action:@selector(minuteButtonTapped:) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)setupAmPmButton
 {
+    [self.amButton setTitleColor:_theme.mainColor forState:UIControlStateNormal];
     [self.amButton addTarget:self action:@selector(amButtonTapped:) forControlEvents:UIControlEventTouchDown];
+    [self.pmButton setTitleColor:_theme.mainColor forState:UIControlStateNormal];
     [self.pmButton addTarget:self action:@selector(pmButtonTapped:) forControlEvents:UIControlEventTouchDown];
 }
 
@@ -207,6 +218,35 @@ static NSString *const GA_VC_TIME_PICKER_VIEW = @"Time Picker View";
     [self.plus10mButton addTarget:self action:@selector(plusButtonTapped:) forControlEvents:UIControlEventTouchDown];
     [self.plus30mButton addTarget:self action:@selector(plusButtonTapped:) forControlEvents:UIControlEventTouchDown];
     [self.plus1hButton addTarget:self action:@selector(plusButtonTapped:) forControlEvents:UIControlEventTouchDown];
+}
+
+static NSString *_buttonLabelFont = @"AvenirNextCondensed-Regular";
+static float _buttonLabelFontSize = 20.0;
+
+- (NSAttributedString *)getHourString:(NSInteger)hour
+{
+    UIFont *font = [UIFont fontWithName:_buttonLabelFont size:_buttonLabelFontSize];
+    NSDictionary *attrsDic = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSString *str = [NSString stringWithFormat:@"%d:00", hour];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:attrsDic];
+    int len = [str length];
+    int initials = (hour >= 10 ? 3 : 2);
+    [attrStr addAttribute:NSForegroundColorAttributeName value:_theme.mainColor range:NSMakeRange(0, initials)];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(initials, len - initials)];
+    return attrStr;
+}
+
+- (NSAttributedString *)getMinuteString:(NSInteger)minute
+{
+    UIFont *font = [UIFont fontWithName:_buttonLabelFont size:_buttonLabelFontSize];
+    NSDictionary *attrsDic = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSString *str = [NSString stringWithFormat:@":%02d", minute];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:attrsDic];
+    int len = [str length];
+    int initials = (minute == 5 ? 2 : 1);
+    [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, initials)];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:_theme.mainColor range:NSMakeRange(initials, len - initials)];
+    return attrStr;
 }
 
 - (IBAction)hourButtonTapped:(UIButton *)sender

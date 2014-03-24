@@ -39,17 +39,20 @@ static NSString *_coffeeNotAvailable = @"(Store not available)";
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self setupThemeColorButtons];
     [self.rateButton addTarget:self action:@selector(onRateAppTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mailButton addTarget:self action:@selector(onContactAuthorTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.coffeeButton addTarget:self action:@selector(onBuyCoffeeTapped:) forControlEvents:UIControlEventTouchUpInside];
 
-    RZSquaresLoading *sl = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
-    sl.color = [UIColor whiteColor];
-    [self.loadingView addSubview:sl];
     self.coffeeLabel.hidden = YES;
     self.coffeePriceLabel.hidden = YES;
     self.coffeeButton.enabled = NO;
     [self requestProduct];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [self updateThemeColorHighlight];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -61,6 +64,7 @@ static NSString *_coffeeNotAvailable = @"(Store not available)";
                                              selector:@selector(transactionFailed:)
                                                  name:IAPHelperTransactionFailedNotification
                                                object:nil];
+    [self updateThemeColorHighlight];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -71,6 +75,35 @@ static NSString *_coffeeNotAvailable = @"(Store not available)";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupThemeColorButtons
+{
+    self.color0Image.layer.cornerRadius = 12.0;
+    self.color1Image.layer.cornerRadius = 12.0;
+    self.color2Image.layer.cornerRadius = 12.0;
+    self.color3Image.layer.cornerRadius = 12.0;
+    
+    self.color0Button.tag = kThemeColorDefault;
+    [self.color0Button addTarget:self action:@selector(onThemeColorButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.color1Button.tag = kThemeColorGreen;
+    [self.color1Button addTarget:self action:@selector(onThemeColorButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+     self.color2Button.tag = kThemeColorBlue;
+    [self.color2Button addTarget:self action:@selector(onThemeColorButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.color3Button.tag = kThemeColorPurple;
+    [self.color3Button addTarget:self action:@selector(onThemeColorButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)updateThemeColorHighlight
+{
+    int index = [[RBZDateReminder instance] getThemeColor];
+    switch (index) {
+        case kThemeColorGreen: self.colorCheckmark.frame = self.color1Button.frame; break;
+        case kThemeColorBlue: self.colorCheckmark.frame = self.color2Button.frame; break;
+        case kThemeColorPurple: self.colorCheckmark.frame = self.color3Button.frame; break;
+        case kThemeColorDefault:
+        default: self.colorCheckmark.frame = self.color0Button.frame; break;
+    }
 }
 
 #pragma mark - Buy me a coffee
@@ -90,7 +123,6 @@ static NSString *_coffeeNotAvailable = @"(Store not available)";
                                                    action:GA_ACTION_STORE_NOT_AVAILABLE
                                                     label:nil
                                                     value:nil];
-            self.loadingView.hidden = YES;
             self.coffeeLabel.text = _coffeeNotAvailable;
             self.coffeeLabel.hidden = NO;
         }
@@ -102,7 +134,6 @@ static NSString *_coffeeNotAvailable = @"(Store not available)";
     if (_iapProducts && [_iapProducts count] > 0) {
         SKProduct *baac = _iapProducts[0];
         if (baac) {
-            self.loadingView.hidden = YES;
             self.coffeeLabel.hidden = NO;
             self.coffeePriceLabel.hidden = NO;
             self.coffeeButton.enabled = YES;
@@ -115,7 +146,6 @@ static NSString *_coffeeNotAvailable = @"(Store not available)";
             self.coffeePriceLabel.text = [NSString stringWithFormat:@"%@", priceStr];
             [self.coffeePriceLabel sizeToFit];
         } else {
-            self.loadingView.hidden = YES;
             self.coffeeLabel.text = _coffeeNotAvailable;
             self.coffeeLabel.hidden = NO;
         }
@@ -187,6 +217,32 @@ static NSString *_coffeeNotAvailable = @"(Store not available)";
                                                 [mail stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
                                                 [subject stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]]];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+- (IBAction)onThemeColorButtonTapped:(UIControl *)sender
+{
+    [GoogleAnalyticsHelper trackEventWithCategory:GA_CATEGORY_UI
+                                           action:GA_ACTION_CHANGE_THEME_COLOR
+                                            label:[RBZDateReminder getThemeColorName:sender.tag]
+                                            value:nil];
+    [[RBZDateReminder instance] setThemeColor:sender.tag];
+    [self updateThemeColorHighlight];
+    UIView *view;
+    switch (sender.tag) {
+        case kThemeColorGreen: view = self.color1Image; break;
+        case kThemeColorBlue: view = self.color2Image; break;
+        case kThemeColorPurple: view = self.color3Image; break;
+        case kThemeColorDefault:
+        default: view = self.color0Image; break;
+    }
+    CAKeyframeAnimation *scaleAnim = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    scaleAnim.duration = 0.2;
+    scaleAnim.keyTimes = @[@(0.0), @(0.5), @(1.0)];
+    scaleAnim.values = @[
+                         [NSValue valueWithCATransform3D:CATransform3DIdentity],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)],
+                         [NSValue valueWithCATransform3D:CATransform3DIdentity]];
+    [view.layer addAnimation:scaleAnim forKey:@"tap"];
 }
 
 @end

@@ -15,6 +15,7 @@
 @end
 
 @implementation RBZDatePickerViewController {
+    DRTheme *_theme;
     BOOL _pickerAnimating;
     int _pickerShown;
 }
@@ -76,8 +77,13 @@ static const int kPickerTypeYearly = 3;
 
 - (void)commonSetup
 {
+    _theme = [RBZDateReminder instance].theme;
     _pickerShown = -1;
     _pickerAnimating = NO;
+    self.setButton.backgroundColor = _theme.mainColor;
+    self.pickerTypeHighlightView.backgroundColor = _theme.mainColor;
+    self.pickerTypeSeparatorView.backgroundColor = _theme.mainColor;
+    self.dateLabel.textColor = _theme.mainColor;
     self.cancelButton.layer.cornerRadius = 3.0;
     self.setButton.layer.cornerRadius = 3.0;
 }
@@ -88,10 +94,33 @@ static const int kPickerTypeYearly = 3;
     [self.dateButton addTarget:self action:@selector(onTypeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.weeklyButton.tag = kPickerTypeWeekly;
     [self.weeklyButton addTarget:self action:@selector(onTypeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.weeklyButton setAttributedTitle:[self getPickerTypeString:kPickerTypeWeekly] forState:UIControlStateNormal];
     self.monthlyButton.tag = kPickerTypeMonthly;
     [self.monthlyButton addTarget:self action:@selector(onTypeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.monthlyButton setAttributedTitle:[self getPickerTypeString:kPickerTypeMonthly] forState:UIControlStateNormal];
     self.yearlyButton.tag = kPickerTypeYearly;
     [self.yearlyButton addTarget:self action:@selector(onTypeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.yearlyButton setAttributedTitle:[self getPickerTypeString:kPickerTypeYearly] forState:UIControlStateNormal];
+}
+
+static NSString *_buttonLabelFont = @"AvenirNextCondensed-Regular";
+static float _buttonLabelFontSize = 20.0;
+
+- (NSAttributedString *)getPickerTypeString:(int)type
+{
+    UIFont *font = [UIFont fontWithName:_buttonLabelFont size:_buttonLabelFontSize];
+    NSDictionary *attrsDic = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSString *str;
+    switch (type) {
+        case kPickerTypeWeekly: str = @"Weekly"; break;
+        case kPickerTypeMonthly: str = @"Monthly"; break;
+        case kPickerTypeYearly: str = @"Yearly"; break;
+    }
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:attrsDic];
+    int len = [str length];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:_theme.mainColor range:NSMakeRange(0, 1)];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(1, len - 1)];
+    return attrStr;
 }
 
 - (void)updateDateLabel:(UIView *)pickerView

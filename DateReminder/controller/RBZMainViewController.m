@@ -21,6 +21,7 @@
 @end
 
 @implementation RBZMainViewController {
+    DRTheme *_theme;
     UIColor *_mainColor;
     UIColor *_highlightColor;
     UIColor *_oddCellColor;
@@ -42,6 +43,7 @@
     BOOL _tomorrowTableShown;
     
     UILabel *_dummyHudTimeLabel;
+    RZSquaresLoading *_loading;
 }
 
 static NSString *const GA_VC_MAIN_VIEW = @"Main View";
@@ -68,6 +70,7 @@ static NSString *const GA_VC_MAIN_VIEW = @"Main View";
     self.popupView.layer.opacity = 0.0;
     
     [self reloadEventData];
+    [self updateTheme];
 }
 
 - (void)viewDidLayoutSubviews
@@ -88,6 +91,10 @@ static NSString *const GA_VC_MAIN_VIEW = @"Main View";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didBecomeActive:)
                                                  name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onThemeColorChanged:)
+                                                 name:DRThemeColorChangedNotification
                                                object:nil];
     if (self.mm_drawerController) {
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
@@ -147,8 +154,6 @@ static NSString *const GA_VC_MAIN_VIEW = @"Main View";
 
 - (void)commonSetup
 {
-    _mainColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:1.0];
-    _highlightColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:.6];
     _oddCellColor = [UIColor colorWithRed:249.0/255.0 green:249.0/255.0 blue:249.0/255.0 alpha:1.0];
     _evenCellColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     
@@ -182,14 +187,34 @@ static NSString *const GA_VC_MAIN_VIEW = @"Main View";
 
 - (void)setupHud
 {
-    UIImage *image = [RBZUtils imageWithColor:_highlightColor];
     _dummyHudTimeLabel = [[UILabel alloc] init];
     _dummyHudTimeLabel.font = [UIFont fontWithName:@"AvenirNextCondensed-Regular" size:26.0];
-    RZSquaresLoading *sl = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
-    sl.color = _mainColor;
-    [self.hudLoadingView addSubview:sl];
-    [self.hudButton setBackgroundImage:image forState:UIControlStateHighlighted];
+    _loading = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
+    [self.hudLoadingView addSubview:_loading];
     [self.hudButton addTarget:self action:@selector(onHudTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)updateTheme
+{
+    _theme = [RBZDateReminder instance].theme;
+    UIImage *image = [RBZUtils imageWithColor:_theme.highlightColor];
+    
+    _loading.color = _theme.mainColor;
+    self.hudTimeView.backgroundColor = _theme.mainColor;
+    [self.hudButton setBackgroundImage:image forState:UIControlStateHighlighted];
+    self.addButton.backgroundColor = _theme.mainColor;
+    for (int i = 0; i < [_todayEvents count]; i++) {
+        if (_todayEvents[i] == _upcomingEvent) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            [self.todayTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
+    for (int i = 0; i < [_tomorrowEvents count]; i++) {
+        if (_tomorrowEvents[i] == _upcomingEvent) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            [self.tomorrowTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
 }
 
 - (void)reloadEventData
@@ -344,6 +369,11 @@ static NSString *const GA_VC_MAIN_VIEW = @"Main View";
 - (void)didBecomeActive:(NSNotification *)notification
 {
     [self reloadEventDataIfNeeded];
+}
+
+- (void)onThemeColorChanged:(NSNotification *)notification
+{
+    [self updateTheme];
 }
 
 - (void)onRefreshTimerFired:(NSTimer *)timer
@@ -591,7 +621,9 @@ static NSString *const GA_VC_MAIN_VIEW = @"Main View";
     cell.titleLabel.text = ev.title;
     cell.timeLabel.text = [ev.time getTimeString];
     if (isUpcoming) {
+        cell.leftIndicator.backgroundColor = _theme.mainColor;
         cell.leftIndicator.hidden = NO;
+        cell.rightIndicator.backgroundColor = _theme.mainColor;
         cell.rightIndicator.hidden = NO;
     } else {
         cell.leftIndicator.hidden = YES;

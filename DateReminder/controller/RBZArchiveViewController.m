@@ -111,8 +111,6 @@ static NSString *const _headerIdentifier = @"header";
 
 - (void)commonSetup
 {
-    _mainColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:1.0];
-    _highlightColor = [UIColor colorWithRed:251.0/255.0 green:119.0/255.0 blue:52.0/255.0 alpha:.1];
     _oddCellColor = [UIColor colorWithRed:249.0/255.0 green:249.0/255.0 blue:249.0/255.0 alpha:1.0];
     _evenCellColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     

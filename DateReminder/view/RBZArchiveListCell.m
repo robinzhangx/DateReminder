@@ -7,6 +7,7 @@
 //
 
 #import "RBZArchiveListCell.h"
+#import "RBZDateReminder.h"
 
 @implementation RBZArchiveListCell
 
@@ -18,6 +19,13 @@
     }
     return self;
 }
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.indicatorView.backgroundColor = [RBZDateReminder instance].theme.mainColor;
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
