@@ -97,6 +97,12 @@ static NSString *const _headerIdentifier = @"header";
     [self handlePendingRemoveEvents];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
